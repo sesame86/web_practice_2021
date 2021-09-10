@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style type="text/css">
+	.w3-hide{
+		display:none!important
+	}
+	.w3-show-block,.w3-show{
+		display:block!important
+	}
+	.w3-show-inline-block{
+		display:inline-block!important
+	}
+</style>
+<body>
+<div class="w3-container">
+
+<h2>Accordions</h2>
+<p>An accordion is used to show (and hide) HTML content:</p>
+  
+<button onclick="myFunction('Demo1')" class="w3-btn w3-block w3-black w3-left-align">Open Section 1</button>
+<div id="Demo1" class="w3-container w3-hide">
+  <h4>Section 1</h4>
+  <p>Some text..</p>
+</div>
+
+<button onclick="myFunction('Demo2')" class="w3-btn w3-block w3-black w3-left-align">Open Section 1</button>
+<div id="Demo2" class="w3-container w3-hide">
+  <h4>Section 1</h4>
+  <p>Some text..</p>
+</div>
+</div>
+<script>
+function myFunction(id) {
+  var x = document.getElementById(id);
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+</body>
+</html>

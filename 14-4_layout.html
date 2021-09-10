@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Henny+Penny&display=swap" rel="stylesheet">
+    <title>레이아웃</title>
+    <style>
+        /*reset 초기화*/
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        html, body {
+            font-family: 'Times New Roman', Times, serif;
+            width: 960px;
+            height: 960px;
+            margin: auto;
+        }
+        a {
+            text-decoration: none;
+        }
+        ul, li {
+            list-style: none;
+        }
+        img {
+            border: 0;
+            float: left;
+            margin: 3px;
+        }
+        /*header*/
+        header {
+            width: 100%;
+            height: 20%;
+            margin: auto;
+            position: relative;
+        }
+        #title {
+            font-family: 'Henny Penny', cursive;
+            position: absolute;
+            top: 67px;
+            left: 10px;
+        }
+        #main_tnb {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+        }
+        #main_bnb {
+            position: absolute;
+            right: 0;
+            bottom: 10px;
+        }
+        #main_tnb>ul>li {
+            float: left;
+            border: 1px solid black;
+            padding: 3px 6px;
+        }
+        #main_tnb>ul>li:first-child {
+            border-radius: 10px 0px 0px 10px;
+        }
+        #main_tnb>ul>li:last-child {
+            border-radius: 0px 10px 10px 0px;
+        }
+        #main_tnb>ul>li:hover {
+            background-color: black;
+            color: #ffffff;
+        }
+        #main_tnb>ul>li>a:hover {
+            color: #ffffff;
+        }
+        #main_bnb>ul>li {
+            float: left;
+            border: 1px solid black;
+            padding: 8px 20px;
+        }
+        #main_bnb>ul>li:first-child {
+            border-radius: 10px 0px 0px 10px;
+        }
+        #main_bnb>ul>li:last-child {
+            border-radius: 0px 10px 10px 0px;
+        }
+        #main_bnb>ul>li:hover {
+            background-color: black;
+        }
+        #main_bnb>ul>li>a:hover {
+            color: #ffffff;
+        }
+        /*content*/
+        #content {
+            width: 100%;
+            height: 52.3%;
+        }
+        section {
+            width: 80%;
+            height: 100%;
+            float: left;
+        }
+        .main_article {
+            border: 1px solid black;
+            padding: 20px;
+            margin: 0 10px 10px 0;
+        }
+        /*aside*/
+        aside {
+            width: 20%;
+            height: 100%;
+            float: right;
+        }
+        input[type="radio"] {display: none;}
+        input ~ div {display: none;}
+
+        input:nth-of-type(1):checked ~ div:nth-of-type(1) {display: block;}
+        input:nth-of-type(2):checked ~ div:nth-of-type(2) {display: block;}
+
+        aside>label {
+            display: block;
+            float: left;
+            width: 50%;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            border: 1px solid black;
+            box-sizing: border-box;
+            background-color: black;
+            color: white;
+        }
+        
+        input:nth-of-type(1):checked ~ label:nth-of-type(1) {background-color: white; color: black;}
+        input:nth-of-type(2):checked ~ label:nth-of-type(2) {background-color: white; color: black;}
+
+        /*탭 목록*/
+        .tab_item .item {
+            padding: 7px;
+            border: 1px solid black;
+            border-top: none;
+            overflow: hidden;
+        }
+        .item .thunbnail {
+            float: left;
+        }
+        .item .description {
+            float: left;
+            margin-left: 7px;
+            width: 120px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        /*footer*/
+        footer {
+            height: 6%;
+            clear: both;
+            border: 1px solid black;
+            text-align: center;
+            padding: 15px 0;
+        }
+        footer>p {
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="title">
+            <h1>Rint Development</h1>
+            <h2>HTML5 + CSS3 Basic</h2>
+        </div>
+        <nav id="main_tnb">
+            <ul>
+                <li><a href="#">Web</a></li>
+                <li><a href="#">Mobile</a></li>
+                <li><a href="#">Game</a></li>
+                <li><a href="#">Simulation</a></li>
+                <li><a href="#">Data</a></li>
+            </ul>
+        </nav>
+        <nav id="main_bnb">
+            <ul>
+                <li><a href="#">HTML5</a></li>
+                <li><a href="#">CSS3</a></li>
+                <li><a href="#">JavaScript</a></li>
+                <li><a href="#">jQuery</a></li>
+                <li><a href="#">Node.js</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div id="content">
+        <section>
+            <article class="main_article">
+                <h1>Main Article</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </article>
+            <article class="main_article">
+                <h1>Main Article</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </article>
+            <article class="main_article">
+                <h1>Main Article</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </article>
+        </section>
+        <aside>
+            <input type="radio" id="rd_first" name="tab" checked>
+            <input type="radio" id="rd_second" name="tab">
+            <label for="rd_first">First</label>
+            <label for="rd_second">Second</label>
+            <div class="tab_item">
+                <ul>
+                    <li class="item">
+                        <a href="#">
+                            <div class="thumbnail">
+                                <img src="https://via.placeholder.com/45" width="30px" height="30px">
+                                <div class="description">HTML5 Canvas<p>2012-03-15</p></div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="item"><a href="#"><div class="thumbnail"><img src="https://via.placeholder.com/45" width="30px" height="30px"><div><div class="description">HTML5 Audio<p>2012-03-15</p></div></div></a></li>
+                    <li class="item"><a href="#"><div class="thumbnail"><img src="https://via.placeholder.com/45" width="30px" height="30px"><div><div class="description">HTML5 Video<p>2012-03-15</p></div></div></a></li>
+                    <li class="item"><a href="#"><div class="thumbnail"><img src="https://via.placeholder.com/45" width="30px" height="30px"><div><div class="description">HTML5 Semantic tag<p>2012-03-15</p></div></div></a></li>
+                </ul>
+            </div>
+            <div class="tab_item">
+                <ul>
+                    <li class="item"><a href="#"><div class="thumbnail"><img src="https://via.placeholder.com/45" width="30px" height="30px"><div><div class="description">CSS3 Tr<p>2012-03-15</p></div></div></a></li>
+                    <li class="item"><a href="#"><div class="thumbnail"><img src="https://via.placeholder.com/45" width="30px" height="30px"><div><div class="description">CSS3 Audio<p>2012-03-15</p></div></div></a></li>
+                    <li class="item"><a href="#"><div class="thumbnail"><img src="https://via.placeholder.com/45" width="30px" height="30px"><div><div class="description">CSS3 Video<p>2012-03-15</p></div></div></a></li>
+                    <li class="item"><a href="#"><div class="thumbnail"><img src="https://via.placeholder.com/45" width="30px" height="30px"><div><div class="description">CSS3 Semantic tag<p>2012-03-15</p></div></div></a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+    <footer>
+        <h1>HTML5+CSS3 BASIC</h1>
+        <p>Website Layout Basic</p>
+    </footer>
+</body>
+</html>

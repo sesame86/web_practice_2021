@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>기본 레이아웃</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        html, body{
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        header {
+            width: 100%;
+            height: 20%;
+        }
+        #login {
+            width: 300px;
+            height: 100%;
+            padding: 30px 30px;
+        }
+        #login-input{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5px 5px;
+        }
+        #logo {
+            height: 100%;
+            position: fixed;
+            top: 30px;
+            right: 30px;
+        }
+        label, input {
+            float: left;
+        }
+        button {
+            margin: 10px 2px 0px 2px;
+        }
+        main {
+            width: 100%;
+            height: 65%;
+        }
+        nav {
+            width: 20%;
+            height: 100%;
+            background-color: #ccc;
+            float: left;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 8px;
+        }
+        li {
+            padding: 20px;
+            color: forestgreen;
+            font-size: 20px;
+        }
+        section {
+            width: 80%;
+            height: 100%;
+            background-color: gray;
+            float: left;
+        }
+        section>p {
+            margin: 270px 10px;
+        }
+        footer {
+            width: 100%;
+            height: 15%;
+            background-color: #eee;
+            clear: both;
+            text-align: center;
+        }
+        #footer-msg {
+            margin-top: 0;
+            padding-top: 24px;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <div id="login">
+            <form action="post">
+                <fieldset id="login-form">
+                    <legend>로그인</legend>
+                    <div id="login-input">
+                        <label>아이디</label>
+                        <input type="text">
+                        <label>패스워드</label>
+                        <input type="text">
+                    </div>
+                    <button id="check-btn">확인</button>
+                    <button id="submit-btn">전달/제출</button>
+                    <button id>깨끗하게 취소</button>
+                </fieldset>
+            </form>
+        </div>
+        <div id="logo">
+            <img src="https://iei.or.kr/resources/images/main/main_renewal/top_logo.jpg" width="300px">
+        </div>
+    </header>
+    <main>
+        <nav>
+            <ul>
+                <li><b>메인</b></li>
+                <li><b>공지사항</b></li>
+                <li><b>자유게시판</b></li>
+            </ul>
+        </nav>
+        <section>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </section>
+    </main>
+    <footer>
+        <p id="footer-msg">KH정보교육원 | 사업자등록번호 : 851-87-00622 | 서울 강남 제2014-01호 | 대표자 : 양진선 | 책임자 : 김언체 | 개인정보관리책임자 : 강명주
+        <br><br>
+        종로지원 : 서울특별시 중구 남대문로 120 대일빌딩 2F, 3F
+        <br>
+        Copyright © 1998-2020 KH Information Educational Institute All Right Reserved</p>
+    </footer>
+</body>
+</html>

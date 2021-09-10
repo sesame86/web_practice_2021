@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>회원가입</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        .wrap {
+            width: 700px;
+            margin: 100px auto;
+        }
+        hr {
+            border: 1px solid pink;
+        }
+        label, input {
+            margin: 2px 0px 2px 2px;
+            text-align: center;
+            padding: 1px;
+        }
+        p {
+            font-size: 12px;
+            margin: 4px 0;
+        }
+        #enroll-form {
+            display: grid;
+            grid-template-columns: 1fr 0.8fr 1.2fr;
+            gap: 5px 5px;
+        }
+        #check-form {
+            grid-column: 2/4;
+            grid-row: 10/11;
+        }
+        .item-center{
+            text-align: center;
+        }
+    </style>
+    <script>
+        
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <hr>
+        <form>
+            <div id="enroll-form">
+                <label><b>이름</b></label>
+                <input type="text" id="name">
+                <label></label>
+                <label><b>아이디</b></label>
+                <input type="text" id="id">
+                <a href="index.html">중복확인</a>
+                <label><b>비밀번호</b></label>
+                <input type="text" id="pwd">
+                <p>6자 이상</p>
+                <label><b>비밀번호 확인</b></label>
+                <input type="text">
+                <label></label>
+                <label><b>비밀번호 힌트/답변</b></label>
+                <select name="que">
+                    <option value="">선택하세요</option>
+                    <option value="30">졸업한 초등학교 이름은?</option>
+                    <option value=31">제일 친한 친구의 핸드폰 번호는?</option>
+                    <option value="32">아버지 성함은?</option>
+                    <option value="33">어머니 성함은?</option>
+                    <option value="34">어릴 적 내 별명은?</option>
+                    <option value="35">가장 아끼는 물건은?</option>
+                    <option value="36">좋아하는 동물은?</option>
+                    <option value="37">좋아하는 색깔은?</option>
+                    <option value="38">좋아하는 음식은?</option>
+                </select>
+                <label></label>
+                <label><b>답변</b></label>
+                <input type="text">
+                <label></label>
+                <label><b>이메일</b></label>
+                <input type="text">
+                <label></label>
+                <label><b>전화번호</b></label>
+                <input type="text">
+                <label></label>
+                <label><b>메일/sns 정보 수신</b></label>
+                <div>
+                    <input type="radio" id="rec_yes" name="receive" checked>
+                    <label>수신</label>
+                    <input type="radio" id="rec_no" name="receive">
+                    <label>수신거부</label>
+                </div>
+                <label></label>
+                <label><b>관심분야</b></label>
+                <div id="check-form">
+                    <input type="checkbox" id="ch1" name="interest" >
+                    <label>생두</label>
+                    <input type="checkbox" id="ch2" name="interest" >
+                    <label>원두</label>
+                    <input type="checkbox" id="ch3" name="interest" >
+                    <label>로스팅</label>
+                    <input type="checkbox" id="ch4" name="interest" >
+                    <label>핸드드립</label>
+                    <input type="checkbox" id="ch5" name="interest" >
+                    <label>에스프레소</label>
+                    <input type="checkbox" id="ch6" name="interest" >
+                    <label>창업</label>
+                </div>
+            </div>
+        </form>
+        <hr>
+        <div class="item-center">
+            <button>회원가입</button>
+            <button>취소</button>
+        </div>
+    </div>
+</body>
+</html>
