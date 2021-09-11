@@ -9,33 +9,95 @@
         body {
             width: 600px;
         }
+        /*basic*/
         .grid-container {
             display: grid;
             grid-template-columns: auto auto auto;
+            grid-gap: 10px;
             background-color: #2196F3;
             padding: 10px;
         }
-        .grid-container > div {
+        
+        .grid-item {
             background-color: rgba(255, 255, 255, 0.8);
             text-align: center;
             padding: 20px 0;
             font-size: 30px;
         }
-        .grid-item {
-            background-color: rgba(255, 255, 255, 0.8);
-            border: 1px solid rgba(0, 0, 0, 0.8);
-            padding: 20px;
-            font-size: 30px;
-            text-align: center;
-        }
+
         /*grid line*/
         .item1 {
             grid-column-start: 1;
             grid-column-end: 3;
         }
+        .item6 {
+            grid-column-start: 3;
+            grid-column-end: 4;
+            grid-row-start: 2;
+            grid-row-end: 4;
+        }
+
+        /*grid size*/
+        .grid-size-container {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            grid-gap: 10px;
+            background-color: #2196F3;
+            padding: 10px;
+            /*추가*/
+            grid-template-rows: 80px 200px 120px;
+            grid-template-columns: 80px auto 30px;
+        }
+
+        /*justify-content*/
+        .jc-space-evenly{
+            justify-content: space-evenly;
+        }
+        .jc-space-around{
+            justify-content: space-around;
+        }
+        .jc-space-between{
+            justify-content: space-between;
+        }
+        .jc-center{
+            justify-content: center;
+        }
+        .jc-start{
+            justify-content: start;
+        }
+        .jc-end{
+            justify-content: end;
+        }
+
+        /*align-content*/
+        .ac-space-evenly{
+            height: 400px;
+            align-content: space-evenly;
+        }
+        .ac-space-around{
+            height: 400px;
+            align-content: space-around;
+        }
+        .ac-space-between{
+            height: 400px;
+            align-content: space-between;
+        }
+        .ac-center{
+            height: 400px;
+            align-content: center;
+        }
+        .ac-start{
+            height: 400px;
+            align-content: start;
+        }
+        .ac-end{
+            height: 400px;
+            align-content: end;
+        }
         </style>
 </head>
 <body>
+    <h2>기본</h2>
     <div class="grid-container">
         <div class="grid-item">1</div>
         <div class="grid-item">2</div>
@@ -47,15 +109,119 @@
         <div class="grid-item">8</div>
         <div class="grid-item">9</div>  
     </div>
+    <h2>열 행 합치기</h2>
     <div class="grid-container">
-        <div class="item1">1</div>
-        <div class="item2">2</div>
-        <div class="item3">3</div>  
-        <div class="item4">4</div>
-        <div class="item5">5</div>
-        <div class="item6">6</div>
-        <div class="item7">7</div>
-        <div class="item8">8</div>  
+        <div class="item1 grid-item">1</div>
+        <div class="item2 grid-item">2</div>
+        <div class="item3 grid-item">3</div>  
+        <div class="item4 grid-item">4</div>
+        <div class="item5 grid-item">5</div>
+        <div class="item6 grid-item">6</div>
+        <div class="item7 grid-item">7</div>
+    </div>
+    <h2>열 행 크기 지정</h2>
+    <div class="grid-size-container">
+        <div class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div>  
+        <div class="grid-item">4</div>
+        <div class="grid-item">5</div>
+        <div class="grid-item">6</div>  
+        <div class="grid-item">7</div>
+        <div class="grid-item">8</div>
+        <div class="grid-item">9</div>  
+    </div>
+    <h2>justify-content : 가로</h2>
+    <p>space-evenly</p>
+    <div class="grid-container jc-space-evenly">
+        <div class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div> 
+    </div>
+    <p>space-around</p>
+    <div class="grid-container jc-space-around">
+        <div class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div> 
+    </div>
+    <p>space-between</p>
+    <div class="grid-container jc-space-between">
+        <div class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div> 
+    </div>
+    <p>center</p>
+    <div class="grid-container jc-center">
+        <div class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div> 
+    </div>
+    <p>start</p>
+    <div class="grid-container jc-start">
+        <div class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div> 
+    </div>
+    <p>end</p>
+    <div class="grid-container jc-end">
+        <div class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div> 
+    </div>
+    <h2>align-content : 세로</h2>
+    <p>space-evenly</p>
+    <div class="grid-container ac-space-evenly">
+        <div class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div> 
+        <div class="grid-item">4</div>
+        <div class="grid-item">5</div>
+        <div class="grid-item">6</div>  
+    </div>
+    <p>space-around</p>
+    <div class="grid-container ac-space-around">
+        <div class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div> 
+        <div class="grid-item">4</div>
+        <div class="grid-item">5</div>
+        <div class="grid-item">6</div>  
+    </div>
+    <p>space-between</p>
+    <div class="grid-container ac-space-between">
+        <div class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div> 
+        <div class="grid-item">4</div>
+        <div class="grid-item">5</div>
+        <div class="grid-item">6</div>  
+    </div>
+    <p>center</p>
+    <div class="grid-container ac-center">
+        <div class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div> 
+        <div class="grid-item">4</div>
+        <div class="grid-item">5</div>
+        <div class="grid-item">6</div>  
+    </div>
+    <p>start</p>
+    <div class="grid-container ac-start">
+        <div class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div> 
+        <div class="grid-item">4</div>
+        <div class="grid-item">5</div>
+        <div class="grid-item">6</div>  
+    </div>
+    <p>end</p>
+    <div class="grid-container ac-end">
+        <div class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div> 
+        <div class="grid-item">4</div>
+        <div class="grid-item">5</div>
+        <div class="grid-item">6</div>  
     </div>
 </body>
 </html>
