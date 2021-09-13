@@ -1,0 +1,16 @@
+.before h1 a {
+    text-decoration: none;
+}
+.before h1 a:hover::before {
+    content: 'before';
+    font: .7em Helvetica sans-serif;
+    color: olivedrab;
+}
+.after h1 a {
+    text-decoration: none;
+}
+.after h1 a:hover::after {
+    content: 'after';
+    font: .7em Helvetica sans-serif;
+    color: olivedrab;
+}
