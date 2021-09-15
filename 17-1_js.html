@@ -17,7 +17,12 @@
         console.log(obj1);
         console.log(obj2.attr1);
         console.log(obj2["attr1"]);
-
+        //오브젝트 전체 내용 보고싶을 때
+        for(var key in obj1){
+            document.write(key, ":", obj1[key], "<br>");
+        }
+        document.write("<hr>");
+        
         //자동 형변환
         //더하기 - 무조건 연결자
         var a = "23" + 1000;     //string, 231000
