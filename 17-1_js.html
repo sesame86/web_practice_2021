@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>javascript</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        var obj1 = {
+            attr1 : "object",
+            attr2 : "practice"
+        }
+
+        var obj2 = new Object();
+        obj2.attr1 = "hello";
+
+        console.log(obj1);
+        console.log(obj2.attr1);
+        console.log(obj2["attr1"]);
+
+        //자동 형변환
+        //더하기 - 무조건 연결자
+        var a = "23" + 1000;     //string, 231000
+        var b = "food" + 1000;   //string, food1000
+        //곱하기
+        var c = "23" * 1000;     //number, 23000
+        var d = "food" * 1000;   //number, NaN
+        //빼기
+        var e = "23" - 1000;     //number, -977
+        var f = "food" - 1000;   //number, NaN
+        //나누기
+        var g = "23" / 1000;    //number, 0.023
+        var h = "food" / 1000;  //number, NaN
+
+        console.log(typeof a, a);
+        console.log(typeof b, b);
+        console.log(typeof c, c);
+        console.log(typeof d, d);
+        console.log(typeof e, e);
+        console.log(typeof f, f);
+        console.log(typeof g, g);
+        console.log(typeof h, h);
+    </script>
+</head>
+<body>
+
+</body>
+<script>
+    //형변환 예제
+    var order1 = 1+2+"피자";
+        var order2 = (1+2)+"피자";
+        var order3 = 1+(2+"피자");
+        var test1 = Infinity-1;
+        var test2 = "54"+46;
+        var test3 = 2+"1 1";
+        var test4 = 99+101;
+        var test5 = "100"-"100";
+        var test6 = "hello, "+10/2;
+        var test7 = "바나나: "+3+3+"개, 사과: "+7+"개";
+        
+        var div = document.createElement("div");
+        div.id = "cont";
+        var result = order1+"<br>"+ 
+                        order2+"<br>"+
+                        order3+"<br><br>"+
+                        test1+"<br>"+
+                        test2+"<br>"+
+                        test3+"<br>"+
+                        test4+"<br>"+
+                        test5+"<br>"+
+                        test6+"<br>"+
+                        test7+"<br>";
+        div.innerHTML = result;
+        document.body.appendChild(div);
+</script>
+</html>
