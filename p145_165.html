@@ -6,10 +6,51 @@
     <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <script>
-        function hello() {
-        alert("Hello");
-        }
-        setInterval(hello, 5000);
+        //5000밀리초(5초) 마다 알림창을 띄우는 예제
+        // function hello() {
+        //     alert("Hello");
+        // }
+        // setInterval(hello, 5000);
+
+        //hello() 함수를 익명 함수로 작성한 예제
+        // setInterval(function() {
+        //     alert("Hello");
+        // }, 1000);
+
+        //1000밀리초(1초) 후 알림창을 띄우는 예제
+        // setTimeout(function() {
+        //     alert("Hello");
+        // }, 1000);
+
+        //1초마다 증가하는 숫자를 출력하고, 숫자가 5가 되면 타이머를 종료하는 예제
+        // var count = 0;
+        // var tID = setInterval(function () {
+        //     count++;
+        //     alert(count);
+        //     if(count == 5) {
+        //     clearInterval(tID);
+        //     }
+        // }, 1000);
+
+        //1초마다 50~100 사이의 정수 출력하는 예제
+        // setInterval(function() {
+        //     alert(parseInt(Math.random() * 50) + 50);
+        // }, 1000);
+
+        //소수점 두번째자리까지 올림수
+        var num = 345.678;
+        num = Math.ceil(num*100)/100;
+        console.log(num);
+        
+        //소수점 두번째 자리까지 내림수
+        var num = 345.678;
+        num = Math.floor(num*100)/100;
+        console.log(num);
+
+        //소수점 두번째 자리까지 반올림수
+        var num = 345.678;
+        num = Math.round(num*100)/100;
+        console.log(num);
     </script>
 </head>
 <body> 
