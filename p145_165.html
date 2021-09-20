@@ -51,6 +51,205 @@
         var num = 345.678;
         num = Math.round(num*100)/100;
         console.log(num);
+
+        //문자열 길이 구하기
+        document.write("Hello".length); // 5
+        var str = new String("Hello World");
+        //alert(str.length); // 11
+
+        //특정 위치 문자 구하기
+        var alpha = "ABCDEFG";
+        //alert(alpha.charAt(3)); // D
+
+        //특정 문자열을 원하는 문자열롤 변경하기
+        var str = 'khacademy_KHACADEMY';
+        var newstr = str.replace('academy', '정보교육원');
+        //console.log(newstr);
+
+        var newstr = str.replace(/academy/gi, '정보교육원');
+        //console.log(newstr);
+
+        //splitString 함수를 선언하고 각각의 문자열을 인자로 호출
+        function splitStrig(str, separator){
+            var strArr = str.split(separator);
+            return strArr;
+        }
+        var str1 = "kh_케이에이치_KH";
+        var str2 = "2016,2017,2018,2019";
+        var str3 = "안녕, 나 자바스크립트야!";
+        strArr1 = splitStrig(str1, " ");
+        strArr2 = splitStrig(str2, ",");
+        strArr3 = splitStrig(str3, "");
+        console.log("["+strArr1+"]");
+        console.log("["+strArr2+"]");
+        console.log("["+strArr3+"]");
+
+        //문자열 추출하는 함수 – substring(), substr()
+        var namestr = "홍길동신사임당유관순";
+        var name1 = namestr.substring(0,3);
+        var name2 = namestr.substring(3,7);
+        var name3 = namestr.substring(7);
+        console.log(name1);
+        console.log(name2);
+        console.log(name3);
+
+        var name1 = namestr.substr(0,3);
+        var name2 = namestr.substr(3,4);
+        var name3 = namestr.substr(7);
+        console.log(name1);
+        console.log(name2);
+        console.log(name3);
+
+        //좌우공백 제거함수 – trim()
+        var strtrim = "   white    Space   ";
+        var newstr = strtrim.trim();
+        console.log(newstr);
+
+        //현재 시간 출력하기 예제
+        var d = new Date();
+        //alert(d.getHours() + "시 " + d.getMinutes() + "분 " + d.getSeconds() + "초 ");
+
+        //현재 년월일, 요일 출력
+        var d = new Date();
+        var date = d.getFullYear() + "/" + (d.getMonth()+1) + "/" + d.getDate() + ", ";
+        switch(d.getDay()){
+        case 0:
+            date += "일";
+            break;
+        case 1:
+            date += "월";
+            break;
+        case 2:
+            date += "화";
+            break;
+        case 3:
+            date += "수";
+            break;
+        case 4:
+            date += "목";
+            break;
+        case 5:
+            date += "금";
+            break;
+        case 6:
+            date += "토";
+            break;
+        }
+        //alert(date);
+
+        //화면에 현재날짜, 시각을 실시간 반영하는 코드
+        var func = function(){
+            var d = new Date();
+            var year = d.getFullYear();
+            var month = d.getMonth()+1;
+            var date = d.getDate();
+            var day = d.getDay();
+            var hour = d.getHours();
+            var min = d.getMinutes();
+            var sec = d.getSeconds();
+            var milisec = d.getMilliseconds();
+            month = (month>9?"":"0")+month;
+            date = (date>9?"":"0")+date;
+            hour = (hour>9?"":"0")+hour;
+            min = (min>9?"":"0")+min;
+            sec = (sec>9?"":"0")+sec;
+            var datestr;
+            switch(day){
+                case 0: datestr = "일"; break;
+                case 1: datestr = "월"; break;
+                case 2: datestr = "화"; break;
+                case 3: datestr = "수"; break;
+                case 4: datestr = "목"; break;
+                case 5: datestr = "금"; break;
+                case 6: datestr = "토"; break;
+            }
+            return year+"-"+month+"-"+date+" ("+datestr+") "+hour+":"+min+":"+sec+":"+milisec;
+        }
+        setInterval(function(){
+            //document.body.innerHTML = func();
+        },10);
+
+        //배열 길이 알아내기 – length 프로퍼티
+        var coms = ["com1", "com2", "com3"];
+        //alert(coms.length); // 3
+
+        //배열의 요소를 전부 출력
+        for(var i=0; i<coms.length; i++) {
+            console.log(coms[i]);
+        }
+
+        //배열의 요소를 ,(콤마)를 구분자로 가지는 문자열로 변환
+        //alert(coms.join(","));
+
+        //문자열에서 ,(콤마)를 구분자로 이용하여 배열로 옮기기
+        var coms = "com1,com2,com3";
+        var arr = coms.split(",");
+        for(var i=0; i<arr.length; i++) {
+        console.log(arr[i]);
+        }
+
+        //1.1object 그냥 생성
+        var obj = {
+        x : "x 속성값",
+        "y" : "y(문자열) 속성값",
+        z : function(){
+        return "저는 속성에 지정된 함수입니다."
+        }
+        }
+        console.log(obj);
+
+        //1.2 new 연산자 통해 만들고, 속성추가.
+        var obj_ = new Object();
+        obj_.x = "x 속성값";
+        obj_["y"] = "y(문자열) 속성값";
+        obj_.z = function(){
+            return "저는 속성에 지정된 함수입니다."
+        };
+        console.log(obj_);
+
+        //2. 속성값 접근하기
+        console.log(obj.x);
+        console.log(obj["x"]);
+        //console.log(obj[x]);// Uncaught ReferenceError: x is not defined // 변수 x => undefined
+        console.log(obj.y);
+        console.log(obj["y"]);
+        console.log(obj.z);
+        console.log(obj["z"]());//함수 호출해서 문자열을 리턴받는다.
+
+        //undefined 일 때 기본값 설정
+        var v = obj.nonExist || "기본값";
+        console.log(v); // 기본값
+
+        //속성값을 갱신하거나, 추가
+        obj.x = "속성값 갱신";
+        console.log(obj.x);
+        //존재하지 않는 속성 추가하기
+        obj.add1 = "새로운 속성 추가";
+        console.log(obj.add1);
+        obj.add2 = {newAttr : "새로운 속성에 객체를 추가"}
+        console.log(obj);
+
+        //Delete 연산자를 사용해서 해당 속성을 삭제
+        delete obj.add1;
+        console.log(obj);
+
+        //객체는 참조방식으로 전달되므로, 복사되지 않는다.
+        var dog1 = {
+            name : "예삐",
+            breed : "푸들",
+            bark : function(){
+                return "왈왈";
+            }
+        }
+        var dog2 = dog1;//dog1을 dog2에 할당. 이때 참조값이 전달된다. 새로운 객체가 생성되지 않는다.
+        console.log(dog2);
+        dog1.name = "뽀삐";
+        console.log(dog2.name);//뽀삐
+        //객체참조 테스트
+        var a = {}, b = {}, c = {};
+        //a, b, c는 각각 다른 빈 객체 참조.
+        A = b = c = {};
+        //a, b, c는 모두 같은 빈 객체 참조.
     </script>
 </head>
 <body> 
