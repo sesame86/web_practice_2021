@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>WebGraphics</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <canvas id="example" width="200" height="200">
+        이 메시지는 사용자의 브라우저에서 HTML5 캔버스를 지원하지 않는 경우 표시 됨
+    </canvas>
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <rect x="10" y="10" height="100" width="100" style="stroke:#ff0000; fill: #0000ff"/>
+    </svg>
+    <br><hr><br>
+
+    
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="800px" onload="startup(evt)">
+        <rect xmlns="http://www.w3.org/2000/svg" x="0" y="0" width="100%" height="100%" fill="#304"/>
+        <defs xmlns="http://www.w3.org/2000/svg"> 
+            <clipPath id="CL"> 
+                <ellipse cx="360" cy="150" rx="40" ry="90"/> 
+            </clipPath>
+            <clipPath id="CS"> 
+                <ellipse cx="560" cy="150" rx="40" ry="90"> 
+                <animateTransform id="ES" attributeName="transform" type="rotate" dur="1s" end="indefinite" begin="indefinite" from="360 560 150" to="0 560 150" repeatCount="indefinite"/> 
+                </ellipse> 
+            </clipPath> 
+            <filter id="Compo" filterUnits="userSpaceOnUse"> 
+                feImage id="feI" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="git_logo.JPG" x="40" y="20" width="240" height="300"> 
+                <animateTransform id="EL" attributeName="transform" type="rotate" dur="3s" end="indefinite" begin="indefinite" from="360 140 150" to="0 140 150" repeatCount="indefinite"/> 
+                </feImage> 
+                <feComposite operator="in" in2="SourceGraphic"/> 
+            </filter> 
+            </defs>
+        <ellipse xmlns="http://www.w3.org/2000/svg" filter="url(#Compo)" id="L" cx="150" cy="150" rx="40" ry="90"> 
+            <animateTransform attributeName="transform" type="rotate" dur="4s" end="indefinite" begin="indefinite" from="0 150 150" to="360 150 150" repeatCount="indefinite"/> 
+        </ellipse>
+        <text xmlns="http://www.w3.org/2000/svg" x="70" y="260" font-size="13" fill="#e1d">ellipse with feImage,</text>
+        <text xmlns="http://www.w3.org/2000/svg" x="70" y="280" font-size="13" fill="#e1d">feComposite, and SMIL</text>
+        <text xmlns="http://www.w3.org/2000/svg" x="300" y="260" font-size="13" fill="#e1d">image with ellipse as clipPath</text>
+        <text xmlns="http://www.w3.org/2000/svg" x="300" y="280" fill="#e1d">and JavaScript</text>
+        <text xmlns="http://www.w3.org/2000/svg" x="520" y="260" font-size="13" fill="#e1d">image with ellipse as clipPath</text>
+        <text xmlns="http://www.w3.org/2000/svg" x="520" y="280" fill="#e1d">and SMIL</text>
+        <image xmlns="http://www.w3.org/2000/svg" id="P" clip-path="url(#CL)" x="240" y="0" width="240" height="300" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="git_logo.JPG" transform="rotate(-329 360 150)"/>
+        <image xmlns="http://www.w3.org/2000/svg" id="S" clip-path="url(#CS)" x="440" y="0" width="240" height="300" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="git_logo.JPG"> 
+            <animateTransform attributeName="transform" type="rotate" dur="1.5s" end="indefinite" begin="indefinite" from="0 560 150" to="360 560 150" repeatCount="indefinite"/> 
+        </image>
+        <g xmlns="http://www.w3.org/2000/svg" id="left" onclick="stop('L')"> 
+            <rect x="90" y="310" width="100" height="30" fill="#ca7"/> 
+            <text x="98" y="330" font-size="18" fill="#304">Start/stop</text> 
+        </g>
+        <g xmlns="http://www.w3.org/2000/svg" id="center" transform="translate(220,0)" onclick="running=!running;animate()"> 
+            <rect x="90" y="310" width="100" height="30" fill="#ca7"/> 
+            <text x="98" y="330" font-size="18" fill="#304">Start/stop</text> 
+        </g>
+        <g xmlns="http://www.w3.org/2000/svg" id="right" transform="translate(440,0)" onclick="stop('S')"> 
+            <rect x="90" y="310" width="100" height="30" fill="#ca7"/> 
+            <text x="98" y="330" font-size="18" fill="#304">Start/stop</text> 
+        </g>
+    </svg>
+    <script>
+        //canvas
+        var example = document.getElementById('example');
+        var context = example.getContext('2d');
+        context.fillStyle = "rgb(255,0,0)";
+        context.fillRect(30, 30, 50, 50);
+
+        //svg와 스크립트
+        var svgDocument;
+        var svgns = 'http://www.w3.org/2000/svg';
+        var xlinkns = 'http://www.w3.org/1999/xlink';
+            
+        function startup(evt){
+            P=document.getElementById("P")
+            animate()
+            stop("S")
+            stop("L")
+        }
+            
+        limit=720
+        blu=4
+        speed=6
+        running=true
+        function animate(){
+            if (!running) return
+            B="rotate("+blu+" 360 150)"
+            C="rotate("+(-blu/2)+" 360 150)"
+            P.setAttribute ("transform", C);
+            blu=blu+speed
+            if ((blu<0)||(blu>limit)) speed=-speed
+            window.setTimeout("animate()",10)
+        }
+        runAnim=new Object
+        runAnim["S"]=false
+        runAnim["L"]=false
+        function stop(id){
+            if (runAnim[id]) {
+                document.getElementById(id).firstChild.nextSibling.endElement()
+                document.getElementById("E"+id).endElement()
+            } else{
+                document.getElementById(id).firstChild.nextSibling.beginElement()
+                document.getElementById("E"+id).beginElement()
+            }
+            runAnim[id]=!runAnim[id]
+        }
+    </script>
+</body>
+</html>
