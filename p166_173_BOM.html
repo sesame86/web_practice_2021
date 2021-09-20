@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>BOM</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <button id="blank">blank</button>&nbsp;&nbsp;
+    <button id="parent">parent</button>&nbsp;&nbsp;
+    <button id="self">self</button>&nbsp;&nbsp;
+    <button id="top">top</button>
+    <br><hr><br>
+
+    <button id="btnReload">reload()</button>
+    <button id="btnAssign">assign()</button>
+    <button id="btnReplace">replace()</button>
+    <br><hr><br>
+
+    <button id="back">back()</button><br>
+    <button id="go">go()</button><input type="number" id="num"><br>
+    <button id="forward">forward()</button><br>
+    <button id="goNaver">히스토리쌓기::네이버</button>
+    <script>
+        //버튼별 이벤트핸들러
+        window.onload = function(){
+            //새창
+            document.querySelector("#blank").onclick = function(){
+                window.open("https://naver.com","_blank", "", true);
+            }
+            //부모창
+            document.querySelector("#parent").onclick = function(){
+                window.open("https://naver.com","_parent", "width=500, height=300");
+            }
+            //현재창
+            document.querySelector("#self").onclick = function(){
+                window.open("https://naver.com","_self","width=500, height=300", false);
+            }
+            //로딩가능한 아무창
+            document.querySelector("#top").onclick = function(){
+                window.open("http://naver.com","_top", "width=500, height=300", true);
+            }
+        }
+
+        //setInteval함수를 이용해서, child윈도우 객체를 1초에 우로10픽셀, 밑으로 10픽셀씩 이동
+        // var child = window.open('', '', 'width=300, height=200');
+        //절대적 이동
+        // child.moveTo(0, 0);
+        // setInterval(function(){
+        //     child.moveBy(10, 10);
+        // }, 1000);
+
+        //프로토콜의 종류, 호스트 이름, 문서 위치 등의 정보
+        output = "";
+        for(var v in location){
+        output += v + " : "+location[v]+"<br>"
+        }
+        //document.body.innerHTML = output;
+
+        //location 객체의 기본메소드
+        //새로고침
+        document.querySelector("#btnReload").onclick = function(){
+            location.reload();
+        }
+        //지정 url 이동
+        document.querySelector("#btnAssign").onclick = function(){
+            location.assign("https://naver.com");
+        }
+        //지정 url 이동(뒤로가기 불가)
+        document.querySelector("#btnReplace").onclick = function(){
+            location.replace("https://naver.com");
+        }
+
+        //navigator 객체
+        console.dir(navigator);
+
+        //history - 아이디 num 인 input 태그에 숫자를 지정하고 history.go()를 실행
+        //history - 이전
+        document.querySelector("#back").addEventListener("click", function(){
+            history.back();
+        });
+        //history - 숫자 입력후 그만큼 이동
+        document.querySelector("#go").addEventListener("click", function(){
+            var num = document.querySelector("#num").value;
+            history.go(num);
+        });
+         //history - 다음
+        document.querySelector("#forward").addEventListener("click", function(){
+            history.forward();
+        });
+        //location - url로 이동
+        document.querySelector("#goNaver").addEventListener("click", function(){
+            location.assign("https://naver.com");
+        });
+
+        //screen 객체
+        console.dir(screen);
+    </script>
+</body>
+</html>
