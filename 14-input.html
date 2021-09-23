@@ -35,29 +35,70 @@
             text-align: center;
         }
     </style>
+    <script>
+        window.addEventListener("load", pageLoadedHandler);
+        function pageLoadedHandler(){
+            //submit 버튼이 눌려지면 이벤트 등록
+            document.getElementById("submitBtn").addEventListener("click", submitCon);
+        }
+        function submitCon(){
+            console.log("btn진입");
+            var pw1 = document.getElementById("pwd");
+            var pw2 = document.getElementById("repwd");
+            
+            var pw1value = pw1.value;
+            var pw2value = pw2.value;
+
+            //비밀번호 6글자 이상, 12글자 이하
+            //경고 popup "조건에 맞게 입력해주세요" - action 으로 이동되지 않음
+            if(pw1.value.length < 6 && pw1.value.length > 12){
+                alert("조건에 맞게 입력해주세요");
+                return false;
+            }
+            //비밀번호와 비밀번호 확인란이 동일하지 않으면
+            //alert "동일하게 입력해주세요" - action으로 이동되지않음
+            else if(pw1value != pw2value){
+                alert("동일하게 입력해주세요");
+                return false;
+            }
+            //그 외는 action으로 데이터 전달하면서 이동
+            else{
+                var enrollForm = document.getElementById("enrollForm");
+                if(document.getElementById("id").value == "admin"){
+                    enrollForm.action = "#관리자모드위치"
+                }else{
+                    enrollForm.action = "#일반페이지"
+                }
+                enrollForm.method = "post";
+                enrollForm.submit();
+                //return false;
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="wrap">
         <hr>
-        <form>
+        <!--<form action="#" method="POST" id="enrollForm">-->
+        <form id="enrollForm">
             <div id="enroll-form">
                 <label><b>이름</b></label>
-                <input type="text" id="name">
+                <input type="text" id="name" required>
                 <label></label>
                 <label><b>아이디</b></label>
-                <input type="text" id="id">
+                <input type="text" id="id" required>
                 <a href="index.html">중복확인</a>
                 <label><b>비밀번호</b></label>
-                <input type="text" id="pwd">
+                <input type="text" id="pwd" required>
                 <p>6자 이상</p>
                 <label><b>비밀번호 확인</b></label>
-                <input type="text">
+                <input type="text" id="repwd" required>
                 <label></label>
                 <label><b>비밀번호 힌트/답변</b></label>
                 <select name="que">
                     <option value="">선택하세요</option>
                     <option value="30">졸업한 초등학교 이름은?</option>
-                    <option value=31">제일 친한 친구의 핸드폰 번호는?</option>
+                    <option value="31">제일 친한 친구의 핸드폰 번호는?</option>
                     <option value="32">아버지 성함은?</option>
                     <option value="33">어머니 성함은?</option>
                     <option value="34">어릴 적 내 별명은?</option>
@@ -100,12 +141,14 @@
                     <label>창업</label>
                 </div>
             </div>
+            <hr>
+            <div class="item-center">
+                <!--해결안됨<button type="submit" id="submit">회원가입</button>-->
+                <!--문제가 있음<button type="submit" id="submit">회원가입</button>-->
+                <button type="button" id="submitBtn">회원가입</button>
+                <button>취소</button>
+            </div>
         </form>
-        <hr>
-        <div class="item-center">
-            <button>회원가입</button>
-            <button>취소</button>
-        </div>
     </div>
 </body>
 </html>
