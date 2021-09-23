@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        //DOM
+        window.onload = function() {
+            //기본
+            //노드 생성
+            var header = document.createElement('h1');
+            var txt = document.createTextNode("hello");
+            //노드 연결
+            header.appendChild(txt);
+            document.body.appendChild(header);
+
+            //이미지 추가
+            //노드 생성
+            var img = document.createElement('img');
+            img.src =
+                'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png';
+                img.width = 400;
+                img.height = 100;
+                // 노드 연결
+                document.body.appendChild(img);
+            
+            //목록 추가
+            //노드 생성
+            var html = '';
+            html += '<ul>';
+            html += '<li>JavaScript</li>';
+            html += '<li>DOM</li>';
+            html += '<li>jQuery</li>';
+            html += '</ul>';
+            //노드 연결
+            //body전체 갈아엎음
+            //document.body.innerHTML = html;
+            document.getElementById('for_inner').innerHTML = html;
+
+            var title_1 = document.getElementById('title_1');
+            var title_2 = document.getElementById('title_2');
+            title_1.innerHTML = 'JavaScript';
+            title_2.innerHTML = 'with DOM';
+
+            var h1_elements = document.getElementsByTagName('h1');
+            console.log(h1_elements);
+            h1_elements[0].innerHTML = '이거는 변경';
+            h1_elements[1].innerHTML = '이거도 변경';
+            h1_elements[2].innerHTML = '이거는 젤 처음꺼 변경';
+
+            //삭제
+            //p라는 객체 자체가 삭제된다
+            var e1 = document.getElementById("for_inner");
+            document.body.removeChild(e1);
+            
+        };
+    </script>
+</head>
+<body>
+    <h1 id="title_1">TITLE</h1>
+    <h1 id="title_2">JavaScript</h1>
+    <p id="for_inner"></p>
+</body>
+</html>
