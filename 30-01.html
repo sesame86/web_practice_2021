@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <title>jQuery 시작 CDN</title>
+    <script>
+        //javascript 형태
+        // window.onload = function(){
+        //     document.getElementById("btn1").onclick = f1;
+        //     function f1(){
+        //         console.log("f1 진입");
+        //         document.getElementById("content").innerHTML = "<h1>제목부분</h1>"
+        //     }
+        // }
+
+        //jQuery 형태
+        //jQuery.ready() == window.onload
+        //페이지 내의 코드를 모두 읽어들인 후에 실행하라는 의미
+        $(document).ready(function() {
+            //alert("안녕하세요");
+            
+            //아이디로 노드 찾기
+            $("#frontEnd").css("border","1px solid #ff00ff");
+            $("#backEnd").css("border","1px solid #00ffff");
+
+            //클래스 이름으로 노드 찾기
+            $(".java").css("background", "wheat");
+
+            //태그 이름으로 노드 찾기
+            $("h2").css("text-decoration","underline");
+
+            //속성 이름으로 노드 찾기
+            //속성이름이 href
+            $("[href]").css("background", "pink");
+            //href의 값이 js로 끝나는
+            $("[href$=js]").css("background", "lightgreen");
+
+
+            //노드 다루기
+            //변수명에 $붙이는 이유: jQuery를 이용한다고 표시하기 위해서
+            var $myF = $(".myFavourite");
+            $myF.css("color", "red");
+            //두번째 노드의 border css 지정
+            $myF.eq(2).css("border", "1px solid gray");
+            $myF.click(f2);
+            function f2(){
+                console.log($myF.length);
+                $(this).html("클릭");
+            }
+
+            //DOM 객체 접근
+            //get 메소드
+            var $list = $("ul li");
+            var list_1 = $list.get(1);
+            list_1.style.border = "1px solid green";
+
+            //순차적으로 접근하기
+            //each 메소드
+            $list.each(function(){
+                console.log($(this).text());
+            });
+            $list.each(function(index){
+                console.log(index);
+            });
+            // $list.each(function(index, element) {
+            //     //document.write(element.innerText);
+            //     //document.write(element.textContent);
+            //     document.write($(element).text());
+            // });
+
+            //자손 노드 중 특정 노드 찾기
+            //find 메소드
+            $("#backEnd").find(".java").eq(0).css("background", "yellow");
+
+            //모든 자식 노드 찾기
+            //children 메소드
+            $("#test").children().css("border", "3px solid #0f0");
+            
+            //특정 자식 노드 찾기
+            $("#frontEnd").find("ul").children(".myFavourite").css("font-weight","bold");
+
+            //부모 노드 찾기
+            //parent 메소드
+            $('#DOM').parent().parent().css("border","2px solid blue");
+            //조상노드
+            $("#DOM").parents().css("border","3px dotted black");
+
+            //이전형제 노드 찾기
+            //prev 메소드
+            $("#DOM").prev().css("border", "2px solid #f00");
+            //모든 이전 형제 노드
+            $("#BOM").prevAll().css("background-color", "beige");
+        });
+        $(function(){
+            //jQuery 장점
+            $("#btn1").click(f1);  //$("셀렉터").click(콜백함수);
+            function f1(){
+                console.log("f1진입");
+                $("#content").html("<h1>제목부분</h1>");
+            }
+        })
+    </script>
+</head>
+<body>
+    <div id="content"></div>
+    <button id="btn1">버튼1</button>
+    <hr><br>
+
+    <!--노드찾기-->
+    <div id="frontEnd">
+        <h2>Front End</h2>
+        <ul>
+            <li class="myFavourite">html</li>
+            <li class="myFavourite">css</li>
+            <li class="js">JavaScript
+            <ul id="test">
+                <li id="JS_CORE"><a href="./JavaScript_Core.html">JavaScript Core</a></li>
+                <li id="DOM"><a href="./DOM.js">DOM</a></li>
+                <li id="BOM"><a href="./BOM.js">BOM</a></li>
+            </ul>
+            </li>
+            <li class="js">jQuery</li>
+        </ul>
+    </div>
+    <div id="backEnd">
+        <h2>Back End</h2>
+        <ul>
+            <li class="java myFavourite">java</li>
+            <li class="java">jsp/servlet</li>
+            <li class="myFavourite">oracle</li>
+        </ul>
+    </div>
+</body>
+</html>

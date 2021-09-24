@@ -41,6 +41,9 @@
             //submit 버튼이 눌려지면 이벤트 등록
             document.getElementById("submitBtn").addEventListener("click", submitCon);
         }
+        function checkNullValue(){
+            
+        }
         function submitCon(){
             console.log("btn진입");
             var pw1 = document.getElementById("pwd");
@@ -48,6 +51,9 @@
             
             var pw1value = pw1.value;
             var pw2value = pw2.value;
+
+            //입력되지 않은 칸이 있는지 확인
+            if(document.getElementById("id").value.length == 0) return false;
 
             //비밀번호 6글자 이상, 12글자 이하
             //경고 popup "조건에 맞게 입력해주세요" - action 으로 이동되지 않음
