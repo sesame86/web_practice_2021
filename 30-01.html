@@ -93,6 +93,73 @@
             $("#DOM").prev().css("border", "2px solid #f00");
             //모든 이전 형제 노드
             $("#BOM").prevAll().css("background-color", "beige");
+
+            //다음 형제 노드 찾기
+            $("#JS_CORE").next().css("font-size","30px");
+            //모든 다음 형제 노드 찾이 – nextAll()
+            $("#JS_CORE").nextAll().css("font-size","30px");
+
+            //노드 생성
+            var $div = $("<div>안녕, 나 제이쿼리야~</div>");
+            $("body").append($div);
+
+            //자바스크립트 DOM으로 
+            var div = document.createElement("div");
+            var txt = document.createTextNode("안녕, 나 자바스크립트야~");
+            div.appendChild(txt);
+            document.body.appendChild(div);
+
+            var $firstMenu = "<li>첫번째 자식노드로 추가</li>";
+            var $lastMenu = "<li>마지막 자식노드로 추가</li>";
+            var $newMenu = "<li>지정추가</li>";
+            $("#btnAdd").click(function(){
+                //생성한 노드를 첫번째 자식 노드로 추가
+                //$("#menu").prepend($firstMenu);
+                //$($firstMenu).prependTo($("#menu"));
+
+                //생성한 노드를 마지막 자식 노드로 추가
+                //$("#menu").append($lastMenu);
+                //$($lastMenu).appendTo($("#menu"));
+
+                //생성한 노드를 특정 노드의 이전 위치에 노드 추가
+                //$($newMenu).insertBefore($("#menu1"));
+                //$("#menu1").before($newMenu);});
+
+                //생성한 노드를 특정 노드의 다음 위치에 노드 추가
+                //$("#menu2").after($newMenu);
+                //$($newMenu).insertAfter($("#menu2"));
+
+                //노드이동
+                //노드를 첫번째 자식 노드로 이동
+                //var $move = $("#menu2");
+                //$("#menu").prepend($move);
+                //$move.prependTo($("#menu"));
+
+                //노드를 마지막 자식 노드로 이동
+                //var $move = $("#menu3");
+                //$("#menu").append($move);
+                //$($move).appendTo($("#menu"));
+
+                //생성한 노드를 특정 노드의 이전 위치로 이동
+                //var $move = $("#menu2");
+                //$("#menu4").insertBefore($move);
+                //$move.before(($("#menu"));
+
+                //생성한 노드를 특정 노드의 다음 위치로 이동
+                var $move = $("#menu2");
+                $("#menu4").insertAfter($move);
+                //$move.after(($("#menu"));
+            });
+            
+            //삭제버튼 동적 추가
+            $("<button id='btnRemove'>삭제</button>").prependTo($("#example2"));
+            //특정 노드 삭제
+            $("#btnRemove").click(function(){
+                var $menu_li = $("#menu").children();
+                $menu_li.eq($menu_li.length-1).remove();
+            });
+
+
         });
         $(function(){
             //jQuery 장점
@@ -131,6 +198,17 @@
             <li class="java myFavourite">java</li>
             <li class="java">jsp/servlet</li>
             <li class="myFavourite">oracle</li>
+        </ul>
+    </div>
+
+    <hr><br>
+    <div id="example2">
+        <button id="btnAdd">추가</button>
+        <ul id="menu">
+            <li id="menu1">중간1</li>
+            <li id="menu2">중간2</li>
+            <li id="menu3">중간3</li>
+            <li id="menu4">중간4</li>
         </ul>
     </div>
 </body>
