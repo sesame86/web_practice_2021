@@ -1,0 +1,20 @@
+@import url("./bootstrap.css");
+/* reset 초기화 */
+* { margin: 0; padding: 0; }
+body { font-family: 'Times New Roman', Times, serif;
+/* width: 960px; */
+}
+a { text-decoration:  none; color:red }
+ul, li { list-style: none; }
+img { border: 0; }
+/* 공통 클래스형태 */
+.tab_hover.c_bw a:hover{
+    background-color: black;
+    color: white;
+}
+input {
+    color: red;
+}
+textarea {
+    color: aquamarine;
+}
