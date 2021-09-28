@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src='js/jquery-3.6.0.js'></script>
+    <title>timmer show hide</title>
+</head>
+<body>
+    <h1>stop watch</h1>
+    <button type="button" id="btnStart">시작하기</button>
+    <button type="button" id="btnPause">멈추기</button>
+    <button type="button" id="btnRecord">기록</button>
+    <button type="button" id="btnStop">정지</button>
+    <div id="a1"></div>
+    <hr>
+    <h1>기록</h1>
+    <div id="a3">
+        <button id="btnShow">펼치기</button>
+        <button id="btnHide">접기</button>
+        <button id="btnToggle">접기</button>
+    </div>
+    <hr>
+    <h1>현재 시간</h1>
+    <div id="a2"></div>
+    <script>
+        //생략가능 $(function(){
+            var sec = 0;
+            var interval1 = 0;
+            $("#btnStart").click(start);
+            $("#btnPause").click(pause);
+            $("#btnRecord").click(record);
+            $("#btnToggle").click(function(){
+                var btnInnerText = $("#btnToggle").text().trim(0);
+                if(btnInnerText == "펼치기"){
+                    $("#btnToggle").text("접기");
+                    $(this).nextAll().show();
+                }else{
+                    $("#btnToggle").text("펼치기");
+                    $(this).nextAll().hide();
+                }
+                //$(this).nextAll().toggle();
+            })
+            $("#btnShow").click(function(){
+                $(this).next().nextAll().show();
+                //$("#btnHide").nextAll().css("display", "block");
+            });
+            $("#btnHide").click(function(){
+                $(this).nextAll().hide();
+                //$("#btnHide").nextAll().css("display", "none");
+            });
+            $("#btnShow").click(stop);
+            function start(){
+                clearInterval(interval1);
+                interval1 = setInterval(function(){
+                    sec++;
+                    var content = "<p>" + sec + "초</p>";
+                    $("#a1").html(content);
+                    $("#a2").html(getToday());
+                }, 100)
+            }
+            function pause(){
+                clearInterval(interval1);
+                //clearInterval(interval2);
+            }
+            function record(){
+                var content = "<p>" + sec + "초</p>";
+                $("#a3").append(content);
+            }
+            function stop(){
+                sec = 0
+                clearInterval(interval1);
+                clearInterval(interval2);
+                var content = "<p>" + sec + "초</p>";
+                $("#a1").html(content);
+            }
+            // interval2 = setInterval(function (){
+            //     $("#a2").html(getToday());
+            // }, 10)
+            var getToday = function(){
+                var d = new Date();
+            // 일자만 표기 console.log(d.getDate());
+            //console.log(d.getHours());
+            //console.log(d.getMinutes());
+            //console.log(d.getSeconds());
+            var year = d.getFullYear();
+            var month = d.getMonth() + 1;
+            var date = d.getDate();
+            var day = d.getDay();
+            var hour = d.getHours();
+            var min = d.getMinutes();
+            var sec = d.getSeconds();
+            var milisec = d.getMilliseconds();
+            month = (month > 9 ? "" : "0") + month;
+            date = (date > 9 ? "" : "0") + date;
+            hour = (hour > 9 ? "" : "0") + hour;
+            min = (min > 9 ? "" : "0") + min;
+            sec = (sec > 9 ? "" : "0") + sec;
+            var datestr;
+            switch (day) {
+                case 0: datestr = "일"; break;
+                case 1: datestr = "월"; break;
+                case 2: datestr = "화"; break;
+                case 3: datestr = "수"; break;
+                case 4: datestr = "목"; break;
+                case 5: datestr = "금"; break;
+                case 6: datestr = "토"; break;
+            }
+            return year + "-" + month + "-" + date
+            + " (" + datestr + ") " + hour + ":"
+            + min + ":" + sec + ":" + milisec;
+            }
+        // 생략가능 });
+    </script>
+</body>
+</html>
