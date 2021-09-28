@@ -6,27 +6,49 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <script src="https://kit.fontawesome.com/616f27e0c4.js" crossorigin="anonymous"></script>
     <script src="js/jquery-3.6.0.js"></script>
-    <link href="./css/basic.css">
+    <link rel="stylesheet" type="text/css" href="./css/basic.css">
     <title>밥도둑_메인페이지</title>
 </head>
-<body>
+<body class="center">
     <header>
-        <img src="./css/밥도둑 로고.png" height="120px" width="220" id="logoImg">
         <div>
-            <a><i class="fas fa-search"></i></a>
-            <button id="loginBtn" class="headerBtn">로그인</button>
-            <button id="enrollBtn" class="headerBtn">회원가입</button>
-            <button id="serviceBtn" class="headerBtn">고객센터</button>
+            <a href="#"><img src="./css/밥도둑 로고.png" id="logoImg"></a>
+            <div id="headerBtn">
+                <a href="#"><i class="fas fa-search"></i></a>
+                <button id="loginBtn" class="headerBtnStyle">로그인</button>
+                <button id="enrollBtn" class="headerBtnStyle">회원가입</button>
+                <button id="serviceBtn" class="headerBtnStyle">고객센터</button>
+            </div>
+            <nav>
+                <ul>
+                    <li id="navRecipe"><a href="#">레시피</a></li>
+                    <li id="navStore"><a href="#">스토어</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-            <li>
-                <ul id="navRecipe">레시피</ul>
-                <ul id="navStore">스토어</ul>
-            </li>
-        </nav>
     </header>
+    <main>
+        <div>
+            <img src="./css/alt.JPG" id="slideImg" alt="slide show">
+        </div>
+        <div>
+            <h2 class="title-font">추천 레시피</h2>
+            <img src="./css/alt.JPG" alt="추천 레시피">
+        </div>
+        <div>
+            <h2 class="title-font">인기 레시피</h2>
+            <img src="./css/alt.JPG" alt="인기 레시피">
+        </div>
+        <div>
+            <h2 class="title-font">인기 상품</h2>
+            <img src="./css/alt.JPG" alt="인기 상품">
+        </div>
+    </main>
+    <hr>
     <footer>
-
+        <a href="https://drive.google.com/drive/folders/1tWY3w3UxI36xSUNnHcE3auOSVf1rdQnN" target="_blank"><i class="fab fa-google-drive"></i></a>
+        <a href="https://github.com/jiin329/KH-semi_project04" target="_blank"><i class="fab fa-github"></i></a>
+        <p>ⓒ 20201. 4조팀명 All rights reserved</p>
     </footer>
 </body>
 </html>
