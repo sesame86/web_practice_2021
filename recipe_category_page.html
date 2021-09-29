@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="https://kit.fontawesome.com/616f27e0c4.js" crossorigin="anonymous"></script>
+    <script src="js/jquery-3.6.0.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/basic.css">
+    <title>밥도둑_카테고리 검색</title>
+    <style>
+        main{
+    width: 100%;
+    margin: auto;
+    position: relative;
+}
+main h2{
+    margin: 7% 0;
+    text-align: center;
+}
+#categoryBtnAll{
+    width: 80%;
+    margin: 7% auto;
+    display: grid;
+}
+.categoryBtn{
+    height: 3.5em;
+    border-radius: unset;
+    border: 0;
+    border-top: solid 1px black;
+    border-right: solid 1px black;
+    background-color: white;
+    font-size: 1em;
+}
+.categoryBtn:hover{
+    background-color: #CFB9AF;
+}
+.imgCenter{
+    width: 80%;
+    margin: auto;
+    display: grid;
+    gap: 0 2%;
+}
+.categoryImg{
+    width: 100%;
+    margin: 2% 0;
+}
+.categoryRecipeTitle{
+    margin: 3% 0 10% 0;
+    font-size: 1.2em;
+}
+.categoryRecipeTitle:hover{
+    color: #CFB9AF;
+}
+#pageBtnAll{
+    width: 18em;
+    height: 2em;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 0.5em;
+    margin: 4em auto 6em;
+}
+.pageBtn{
+    border: 0;
+    border-radius: 5px;
+    background-color: #CFB9AF;
+}
+.pageBtn:hover{
+    background-color: #9a7b6c;
+}
+/*responsive*/
+/*스마트폰*/
+@media screen and (max-width:  767px){
+    #categoryBtnAll{
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+    .categoryBtn:first-child, .categoryBtn:nth-child(7), .categoryBtn:nth-child(13){border-left: solid 1px black;}
+    .categoryBtn:nth-last-child(-n+6){border-bottom: solid 1px black;}
+    .imgCenter{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+/*태블릿 pc*/
+@media screen and (min-width:  768px) and (max-width: 959px){
+    #categoryBtnAll{
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+    .categoryBtn:first-child, .categoryBtn:nth-child(10){border-left: solid 1px black;}
+    .categoryBtn:nth-last-child(-n+9){border-bottom: solid 1px black;}
+    .imgCenter{
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+/*데스크탑*/
+@media screen and (min-width:  960px){
+    #categoryBtnAll{
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+    .categoryBtn:first-child, .categoryBtn:nth-child(10){border-left: solid 1px black;}
+    .categoryBtn:nth-last-child(-n+9){border-bottom: solid 1px black;}
+    .imgCenter{
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <a href="#"><img src="./css/밥도둑 로고.png" id="logoImg"></a>
+            <div id="headerBtn">
+                <a href="#"><i class="fas fa-search"></i></a>
+                <button id="loginBtn" class="headerBtnStyle">로그인</button>
+                <button id="enrollBtn" class="headerBtnStyle">회원가입</button>
+                <button id="serviceBtn" class="headerBtnStyle">고객센터</button>
+            </div>
+            <nav>
+                <ul>
+                    <li id="navRecipe"><a href="#" class="selectLinkColor">레시피</a></li>
+                    <li id="navStore"><a href="#">스토어</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <hr>
+    <main>
+        <h2>Recipe</h2>
+        <div id="categoryBtnAll">
+            <button type="button" id="all" class="categoryBtn selectBtnColor">전체</button>
+            <button type="button" id="63" class="categoryBtn">밑반찬</button>
+            <button type="button" id="56" class="categoryBtn">메인반찬</button>
+            <button type="button" id="54" class="categoryBtn">국/탕</button>
+            <button type="button" id="55" class="categoryBtn">찌개</button>
+            <button type="button" id="60" class="categoryBtn">디저트</button>
+            <button type="button" id="53" class="categoryBtn">면/만두</button>
+            <button type="button" id="52" class="categoryBtn">밥/죽/떡</button>
+            <button type="button" id="61" class="categoryBtn">퓨전</button>
+            <button type="button" id="57" class="categoryBtn">김치/젓갈/장류</button>
+            <button type="button" id="58" class="categoryBtn">양념/소스/잼</button>
+            <button type="button" id="65" class="categoryBtn">양식</button>
+            <button type="button" id="64" class="categoryBtn">샐러드</button>
+            <button type="button" id="68" class="categoryBtn">스프</button>
+            <button type="button" id="66" class="categoryBtn">빵</button>
+            <button type="button" id="69" class="categoryBtn">과자</button>
+            <button type="button" id="59" class="categoryBtn">차/음료/술</button>
+            <button type="button" id="62" class="categoryBtn">기타</button>
+        </div>
+        <div>
+            <!--여기 java에서 for문으로 사진 <5 으로 5개까지 데이터 들고옴-->
+            <!--일단 structure-->
+            <div class="imgCenter">
+                <div>
+                    <img src="./css/alt.JPG" class="categoryImg" alt="추천 레시피">
+                    <p class="categoryRecipeTitle">레시피이름</p>
+                </div>
+                <div>
+                    <img src="./css/alt.JPG" class="categoryImg" alt="추천 레시피">
+                    <p class="categoryRecipeTitle">레시피이름</p>
+                </div>
+                <div>
+                    <img src="./css/alt.JPG" class="categoryImg" alt="추천 레시피">
+                    <p class="categoryRecipeTitle">레시피이름</p>
+                </div>
+                <div>
+                    <img src="./css/alt.JPG" class="categoryImg" alt="추천 레시피">
+                    <p class="categoryRecipeTitle">레시피이름</p>
+                </div>
+                <div>
+                    <img src="./css/alt.JPG" class="categoryImg" alt="추천 레시피">
+                    <p class="categoryRecipeTitle">레시피이름</p>
+                </div>
+                <div>
+                    <img src="./css/alt.JPG" class="categoryImg" alt="추천 레시피">
+                    <p class="categoryRecipeTitle">레시피이름</p>
+                </div>
+                <div>
+                    <img src="./css/alt.JPG" class="categoryImg" alt="추천 레시피">
+                    <p class="categoryRecipeTitle">레시피이름</p>
+                </div>
+                <div>
+                    <img src="./css/alt.JPG" class="categoryImg" alt="추천 레시피">
+                    <p class="categoryRecipeTitle">레시피이름</p>
+                </div>
+                <div>
+                    <img src="./css/alt.JPG" class="categoryImg" alt="추천 레시피">
+                    <p class="categoryRecipeTitle">레시피이름</p>
+                </div>
+                <div>
+                    <img src="./css/alt.JPG" class="categoryImg" alt="추천 레시피">
+                    <p class="categoryRecipeTitle">레시피이름</p>
+                </div>
+                <div>
+                    <img src="./css/alt.JPG" class="categoryImg" alt="추천 레시피">
+                    <p class="categoryRecipeTitle">레시피이름</p>
+                </div>
+                <div>
+                    <img src="./css/alt.JPG" class="categoryImg" alt="추천 레시피">
+                    <p class="categoryRecipeTitle">레시피이름</p>
+                </div>
+                <div>
+                    <img src="./css/alt.JPG" class="categoryImg" alt="추천 레시피">
+                    <p class="categoryRecipeTitle">레시피이름</p>
+                </div>
+                <div>
+                    <img src="./css/alt.JPG" class="categoryImg" alt="추천 레시피">
+                    <p class="categoryRecipeTitle">레시피이름</p>
+                </div>
+                <div>
+                    <img src="./css/alt.JPG" class="categoryImg" alt="추천 레시피">
+                    <p class="categoryRecipeTitle">레시피이름</p>
+                </div>
+                <div>
+                    <img src="./css/alt.JPG" class="categoryImg" alt="추천 레시피">
+                    <p class="categoryRecipeTitle">레시피이름</p>
+                </div>
+                <div>
+                    <img src="./css/alt.JPG" class="categoryImg" alt="추천 레시피">
+                    <p class="categoryRecipeTitle">레시피이름</p>
+                </div>
+                <div>
+                    <img src="./css/alt.JPG" class="categoryImg" alt="추천 레시피">
+                    <p class="categoryRecipeTitle">레시피이름</p>
+                </div>
+                <div>
+                    <img src="./css/alt.JPG" class="categoryImg" alt="추천 레시피">
+                    <p class="categoryRecipeTitle">레시피이름</p>
+                </div>
+                <div>
+                    <img src="./css/alt.JPG" class="categoryImg" alt="추천 레시피">
+                    <p class="categoryRecipeTitle">레시피이름</p>
+                </div>
+            </div>
+        </div>
+        <div id="pageBtnAll">
+            <button type="button" id="" class="pageBtn"><i class="fas fa-chevron-left"></i></button>
+            <button type="button" id="" class="pageBtn selectBtnColor">1</button>
+            <button type="button" id="" class="pageBtn">2</button>
+            <button type="button" id="" class="pageBtn">3</button>
+            <button type="button" id="" class="pageBtn">4</button>
+            <button type="button" id="" class="pageBtn">5</button>
+            <button type="button" id="" class="pageBtn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </main>
+    <hr>
+    <footer>
+        <a href="https://drive.google.com/drive/folders/1tWY3w3UxI36xSUNnHcE3auOSVf1rdQnN" target="_blank"><i class="fab fa-google-drive"></i></a>
+        <a href="https://github.com/jiin329/KH-semi_project04" target="_blank"><i class="fab fa-github"></i></a>
+        <p>ⓒ 2021. 4조팀명 All rights reserved</p>
+    </footer>
+</body>
+</html>
