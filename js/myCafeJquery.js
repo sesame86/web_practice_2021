@@ -1,4 +1,7 @@
 $(function(){
+    //blur은 focus와 반대
+    //focus는 주목을 받으면 무슨 일 하는거고
+    //blur은 주목을 받은 상태에서 무관심 형태로 변하면 무슨 일을 한다.
     $(".c").blur(update);
 
     function update(){
