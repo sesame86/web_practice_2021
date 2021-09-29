@@ -32,7 +32,7 @@
             $("#btnPause").click(pause);
             $("#btnRecord").click(record);
             $("#btnToggle").click(function(){
-                var btnInnerText = $("#btnToggle").text().trim(0);
+                var btnInnerText = $("#btnToggle").text().trim();
                 if(btnInnerText == "펼치기"){
                     $("#btnToggle").text("접기");
                     $(this).nextAll().show();

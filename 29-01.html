@@ -14,7 +14,7 @@
         }
 
         // common function
-        function checkNullValue( n1, index, arr) {
+        function checkNullValue(n1, index, arr) {
             console.log("1:" +  n1 + ", 2:"+index + ", 3:"+arr );
             if(n1.value.length == 0){
                 alert("입력해주세요.");
@@ -107,7 +107,7 @@
             var name = document.getElementById("name").value;
             var regExpName = /^[가-힣]{2,10}$/;
             if( !regExpName.test(name) ){
-                alert("영어 대소문자 + 숫자 + 특수문자(_#) 조건에 맞게 입력해주세요");
+                alert("한글입력만 가능 2글자 이상 10글자 이하");
                 return false;
             }
 
