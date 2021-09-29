@@ -1,11 +1,5 @@
 /*font style*/
 @font-face {
-    font-family: 'MapoGoldenPier';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoGoldenPierA.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
     font-family: 'GmarketSansMedium';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
     font-weight: normal;
@@ -14,8 +8,14 @@
 
 /*structure*/
 * {
+    padding: 0;
+    margin: 0;
     font-family: 'GmarketSansMedium';
 }
+hr{
+    border: solid 1px #ebded4;
+}
+/*header*/
 header{
     width: 100%;
     margin: auto;
@@ -25,41 +25,77 @@ header a{
     text-decoration: none;
     color: black;
 }
+#logoImg{
+    display : block;
+    margin : 4em auto 2em auto;
+    width : 25%;
+}
 #headerBtn{
     position: absolute;
     top: 0px;
     right: 15px;
     text-decoration: none;
 }
+.headerBtnStyle{
+    background-color: #CFB9AF;
+    border: none;
+    font-size: 0.8em;
+    width: 5em;
+    height: 2em;
+    border-radius: 5px;
+    margin: 0.4em auto;
+}
 .headerBtnStyle:hover{
     background-color: #9a7b6c;
 }
 nav ul{
     display: inline-block;
-    margin: 0;
-    padding: 0;
+    font-size: 1.3em;
 }
 nav ul li{
     display: inline-block;
     list-style-type : none;
+    margin: 0.4em 0 0.4em 1.6em;
 }
 nav ul li a{
     text-decoration: none;
     color: black;
 }
-main{
-    width: 100%;
-    margin: auto;
-    position: relative;
+nav ul li a:hover{
+    color: #CFB9AF;
 }
-#slideImg{
-    width: 100%;
-    height: 450px;
-}
+/*footer*/
 footer{
     width: 100%;
     position: relative;
     text-align: center;
+    margin: 3em 0;
+}
+footer a{
+    text-decoration: none;
+    color: black;
+    font-size: 1.2em;
+    margin: 0 0.4em;
+}
+footer p{
+    font-size: 1em;
+}
+/*기본적인 것들*/
+.selectLinkColor{
+    color: #9a7b6c;
+    position: relative;
+}
+.selectLinkColor:after{
+    content: '';
+    display: block;
+    width: 100%;
+    height: 0.2em;
+    position: absolute;
+    margin: 0.3em 0;
+    background-color: #9a7b6c;
+}
+.selectBtnColor{
+    background-color: #9a7b6c;
 }
 
 /*responsive*/
@@ -67,41 +103,12 @@ footer{
 @media screen and (max-width:  767px){
     body{
         background-color: white;
-        width: 80%;
+        width: 90%;
         margin : auto;
-    }
-    #logoImg{
-        display : block;
-        margin : 40px auto;
-        width : 25%;
+        font-size: 11px;
     }
     .headerBtnStyle{
         display: block;
-        background-color: #CFB9AF;
-        border: none;
-        font-size: 7px;
-        padding: 3px 5px;
-        border-radius: 5px;
-        margin: 2px auto;
-    }
-    nav ul{
-        font-size: 11px;
-    }
-    nav ul li{
-        margin: 2px 5px;
-    }
-    .title-font{
-        text-align: center;
-        font-size: 13px;
-    }
-    footer a{
-        text-decoration: none;
-        color: black;
-        font-size: 15px;
-        margin: 20px auto;
-    }
-    footer p{
-        font-size: 8px;
     }
 }
 /*태블릿 pc*/
@@ -110,42 +117,7 @@ footer{
         background-color: white;
         width: 80%;
         margin : auto;
-    }
-    #logoImg{
-        display : block;
-        margin : 40px auto;
-        width : 25%;
-    }
-    #headerBtn{
-        display: block;
-    }
-    .headerBtnStyle{
-        background-color: #CFB9AF;
-        border: none;
-        font-size: 10px;
-        padding: 5px 6px;
-        border-radius: 5px;
-        margin: 0px 3px;
-        
-    }
-    footer a{
-        text-decoration: none;
-        color: black;
-        font-size: 18px;
-        margin: 20px auto;
-    }
-    footer p{
-        font-size: 12px;
-    }
-    nav ul{
-        font-size: 18px;
-    }
-    nav ul li{
-        margin: 8px 12px;
-    }
-    .title-font{
-        font-size: 20px;
-        text-align: center;
+        font-size: 14px;
     }
 }
 /*데스크탑*/
@@ -155,39 +127,6 @@ footer{
         width: 80%;
         max-width: 1200px;
         margin : auto;
-    }
-    #logoImg{
-        display : block;
-        margin : 40px auto;
-        height : 120px;
-        width : 220px;
-    }
-    .headerBtnStyle{
-        background-color: #CFB9AF;
-        border: none;
-        font-size: 12px;
-        padding: 5px 10px;
-        border-radius: 5px;
-        margin: 0px 3px;
-        
-    }
-    nav ul{
-        font-size: 20px;
-    }
-    nav ul li{
-        margin: 8px 12px;
-    }
-    .title-font{
-        text-align: center;
-        margin: 40px;
-    }
-    footer a{
-        text-decoration: none;
-        color: black;
-        font-size: 20px;
-        margin: 10px auto;
-    }
-    footer p{
-        font-size: 15px;
+        font-size: 16px;
     }
 }

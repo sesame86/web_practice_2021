@@ -7,9 +7,10 @@
     <script src="https://kit.fontawesome.com/616f27e0c4.js" crossorigin="anonymous"></script>
     <script src="js/jquery-3.6.0.js"></script>
     <link rel="stylesheet" type="text/css" href="./css/basic.css">
+    <link rel="stylesheet" type="text/css" href="./css/mainpage_main.css">
     <title>밥도둑_메인페이지</title>
 </head>
-<body class="center">
+<body>
     <header>
         <div>
             <a href="#"><img src="./css/밥도둑 로고.png" id="logoImg"></a>
@@ -33,11 +34,21 @@
         </div>
         <div>
             <h2 class="title-font">추천 레시피</h2>
-            <img src="./css/alt.JPG" alt="추천 레시피">
+            <div id="recommendRecipe">
+                <!--여기 java에서 for문으로 사진 <5 으로 5개까지 데이터 들고옴-->
+                <!--일단 structure-->
+                <img src="./css/alt.JPG" class="recommendImg" alt="추천 레시피">
+                <img src="./css/alt.JPG" class="recommendImg" alt="추천 레시피">
+                <img src="./css/alt.JPG" class="recommendImg" alt="추천 레시피">
+                <img src="./css/alt.JPG" class="recommendImg" alt="추천 레시피">
+                <img src="./css/alt.JPG" class="recommendImg" alt="추천 레시피">
+            </div>
         </div>
-        <div>
+        <div id="prContainer">
             <h2 class="title-font">인기 레시피</h2>
-            <img src="./css/alt.JPG" alt="인기 레시피">
+            <div id="popularRecipe">
+                <img src="./css/alt.JPG" class="popularImg" alt="추천 레시피">
+            </div>
         </div>
         <div>
             <h2 class="title-font">인기 상품</h2>
@@ -48,7 +59,7 @@
     <footer>
         <a href="https://drive.google.com/drive/folders/1tWY3w3UxI36xSUNnHcE3auOSVf1rdQnN" target="_blank"><i class="fab fa-google-drive"></i></a>
         <a href="https://github.com/jiin329/KH-semi_project04" target="_blank"><i class="fab fa-github"></i></a>
-        <p>ⓒ 20201. 4조팀명 All rights reserved</p>
+        <p>ⓒ 2021. 4조팀명 All rights reserved</p>
     </footer>
 </body>
 </html>
