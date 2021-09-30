@@ -7,7 +7,7 @@
     <script src="https://kit.fontawesome.com/616f27e0c4.js" crossorigin="anonymous"></script>
     <script src="js/jquery-3.6.0.js"></script>
     <link rel="stylesheet" type="text/css" href="./css/basic.css">
-    <title>밥도둑_메인페이지</title>
+    <title>밥도둑_상세조회 페이지</title>
     <style>
 main{
     width: 100%;
@@ -88,12 +88,11 @@ main{
     list-style-type: none;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin: 1em 15em;
+    margin: 1em 8em;
     gap: 0 5em;
 }
 #detailIngre li{
     display: flex;
-    gap: 4em;
     border-bottom: solid 2px #CFB9AF;
 }
 #detailIngre li p{
@@ -107,26 +106,73 @@ main{
 #detailStep{
     list-style-type: none;
 }
-#detailStep li{
-    margin: 2em 0 2em 3em;
+#detailStep li h2{
+    clear: both;
+    margin: 1em 1em 0.5em 1em;
 }
-#detailStep li div{
+
+#stepContent{
     width: 100%;
 }
 #detailStep li p{
     float: left;
     width: 60%;
-    margin: 2%;
-    font-size: 1.3em;
+    margin: 2.5%;
+    font-size: 1.2em;
 }
 #stepImg{
     float: left;
     width: 30%;
-    margin: 2%;
+    margin: 2.5%;
     aspect-ratio: 8/5;
 }
 #detailCommentContainer{
     clear: both;
+    margin: 3em auto;
+    padding: 2em;
+    background-color: #ebded4;
+    border-radius: 5px;
+}
+#commentFrm{
+    margin: 1em 0 1em 7em;
+}
+#commentInput{
+    float: left;
+    width: 50%;
+    height: 4em;
+    margin: 1em 1em 4em 0;
+
+}
+#commentSubmitBtn{
+    float: left;
+    font-size: 1em;
+    width: 5em;
+    height: 2.5em;
+    margin: 1em 0 4em 1em;
+}
+#detailCommentContainer ul{
+    clear: both;
+    list-style-type: none;
+    width: 90%;
+    margin: auto;
+}
+.commentUser{
+    float: left;
+    text-align: center;
+    width: 20%;
+    margin: 1em 0;
+}
+.commentUser i{
+    font-size: 2em;
+}
+.commentContent{
+    float: left;
+    width: 70%;
+    margin: 1em 0;
+}
+.clear{
+    clear: both;
+    border: solid 1px #CFB9AF;
 }
     </style>
 </head>
@@ -192,32 +238,55 @@ main{
             <ul id="detailStep">
                 <li>
                     <h2>Step 1</h2>
-                    <div>
-                        <p>먼저 식빵을 가위로 잘게 잘라 줍니다.먼저 식빵을 가위로 잘게 잘라 줍니다.먼저 식빵을 가위로 잘게 잘라 줍니다.먼저 식빵을 가위로 잘게 잘라 줍니다.먼저 식빵을 가위로 잘게 잘라 줍니다.먼저 식빵을 가위로 잘게 잘라 줍니다.</p>
+                    <div class="stepContent">
+                        <p>먼저 식빵을 가위로 잘게 잘라 줍니다.먼저 식빵을 가위로 잘게 잘라 줍니다.먼저 식빵을 가위로 잘게 잘라 줍니다.먼저 식빵을 가위로 잘게 잘라 줍니다.먼저 식빵을 가위로 잘게 잘라 줍니다.</p>
                         <img src="./css/alt.JPG" id="stepImg" alt="레시피 순서">
                     </div>
                 </li>
                 <li>
                     <h2>Step 1</h2>
-                    <div>
-                        <p>먼저 식빵을 가위로 잘게 잘라 줍니다.먼저 식빵을 가위로 잘게 잘라 줍니다.먼저 식빵을 가위로 잘게 잘라 줍니다.먼저 식빵을 가위로 잘게 잘라 줍니다.먼저 식빵을 가위로 잘게 잘라 줍니다.먼저 식빵을 가위로 잘게 잘라 줍니다.</p>
-                        <img src="./css/alt.JPG" id="stepImg" alt="레시피 순서">
-                    </div>
-                </li>
-                <li>
-                    <h2>Step 1</h2>
-                    <div>
-                        <p>먼저 식빵을 가위로 잘게 잘라 줍니다.먼저 식빵을 가위로 잘게 잘라 줍니다.먼저 식빵을 가위로 잘게 잘라 줍니다.먼저 식빵을 가위로 잘게 잘라 줍니다.먼저 식빵을 가위로 잘게 잘라 줍니다.먼저 식빵을 가위로 잘게 잘라 줍니다.</p>
+                    <div class="stepContent">
+                        <p>먼저 식빵을 가위로 잘게 잘라 줍니다.먼저 식빵을 가위로 잘게 잘라 줍니다.먼저 식빵을 가위로 잘게 잘라 줍니다.먼저 식빵을 가위로 잘게 잘라 줍니다.먼저 식빵을 가위로 잘게 잘라 줍니다.</p>
                         <img src="./css/alt.JPG" id="stepImg" alt="레시피 순서">
                     </div>
                 </li>
             </ul>
         </div>
         <div id="detailCommentContainer">
+            <h2>댓글 남기기</h2>
+			<form method="get" action="#" id="commentFrm">
+                <input type="hidden" name="bno" readonly>
+                <input type="hidden" name="comment"  value="comment" readonly>
+                <textarea name="content" id="commentInput" required="required"></textarea>
+				<button type="submit" id="commentSubmitBtn">등록</button>
+			</form>
             <ul>
+                <hr>
                 <li>
-
+                <hr class="clear">
+                    <div class="commentUser">
+                        <i class="far fa-comment"></i>
+                        <p>user1</p>
+                    </div>
+                    <p class="commentContent">댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용</p>
                 </li>
+                <hr class="clear">
+                <li>
+                    <div class="commentUser">
+                        <i class="far fa-comment"></i>
+                        <p>user1</p>
+                    </div>
+                    <p class="commentContent">댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용</p>
+                </li>
+                <hr class="clear">
+                <li>
+                    <div class="commentUser">
+                        <i class="far fa-comment"></i>
+                        <p>user1</p>
+                    </div>
+                    <p class="commentContent">댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용</p>
+                </li>
+                <hr class="clear">
             </ul>
         </div>
     </main>
