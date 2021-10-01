@@ -14,16 +14,16 @@
     <!-- 문제 1 -->
     <!-- 입력 버튼을 누르면 inline 형태로 insertIngredient 호출되게 함. -->
     <!-- 출력 버튼을 누르면 inline 형태로 printIngredient 호출되게 함. -->
-    <button type="button" id="inputBtn" onclick="insertIngredient()">입력</button>
-    <button type="button" id="outputBtn" onclick="printIngredient()">출력</button>
+    <button type="button" id="inputBtn">입력</button>
+    <button type="button" id="outputBtn">출력</button>
     <script>
         // 문제 2
         // 입력 버튼을 누르면 addEventListener를 사용하여 insertIngredient 호출되게 함.
         // 출력 버튼을 누르면 addEventListener를 사용하여 printIngredient 호출되게 함.
         window.addEventListener("load", pageLoadedHandler);
         function pageLoadedHandler(){
-            // document.getElementById("inputBtn").addEventListener("click", insertIngredient);
-            // document.getElementById("outputBtn").addEventListener("click", printIngredient);
+            document.getElementById("inputBtn").addEventListener("click", insertIngredient);
+            document.getElementById("outputBtn").addEventListener("click", printIngredient);
 
         }
         var member;
@@ -45,22 +45,39 @@
                 단가 : 200원
                 수량 : 3
                 */
-                    var listEle = "";
-                    listEle += "재료 : " + ingredient;
-                    listEle += "<br>단가 : " + price;
-                    listEle += "<br>수량 : " + amount;
-                    return listEle;
+                    var txt = "";
+                        txt += "재료 : " + ingredient + " ";
+                        txt += "\n 단가 : " + price + " ";
+                        txt += "\n 수량 : " + amount + " ";
+                    return txt;
                 }
             }
         }
+        var count = 0;
         function printIngredient() {
+            console.log(member.info());
+            count++;
             // 문제 5
-            // 입력된 데이터가 있다면 아래와 같이 출력
-            //undefined는 초기화되지 않았거나 선언되지 않았거나 값이 할당되지 않았음을 의미
+            // 입력된 데이터가 있다면 
             if(member != undefined){
-                document.getElementById("list").innerHTML = member.info();
-            }else {
+                // member.info를 이용하여 출력데이터를 list div 안에 p태그로 하나씩 추가되고 해당 p 태그 다음에 삭제버튼도 추가
+                var listEle = document.createElement("p");
+                listEle.setAttribute("id", "p_"+count);
+                listEle.innerHTML = member.info();
+                document.getElementById("list").appendChild(listEle);
+
+                var btnEle = document.createElement("button");
+                btnEle.setAttribute("id", "deleteBtn_"+count);
+                btnEle.innerHTML = "삭제";
+                document.getElementById("p_"+count).appendChild(btnEle);
+            } else {
+            //else   // 입력된 데이터가 없다면 아래와 같이 경고 메시지
                 alert("입력을 먼저 진행해주세요");
+            }
+            // 문제 6 
+            // 삭제버튼을 누르면 해당 p 태그가 삭제
+            document.getElementById("deleteBtn_"+count).onclick = function(){
+                this.parentElement.remove();
             }
         }
     </script>

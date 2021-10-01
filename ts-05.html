@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/jquery-3.6.0.js"></script>
+    <title>구구단 timer</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #a1{
+            width: 300px;
+            height: 700px;
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+<body>
+    <!-- 멈추기 버튼추가 id는 btn1을 사용함 -->
+
+    <button id="btn1">멈추기</button>
+    <h1>구구단</h1>
+
+    <script>
+        // 페이지가 열기면
+        // "구구단" h1 태그 아래 구구단 2단(2*1=1)부터 보여지도록 id가 a1인 div태그를 사용함.
+        // id가 a1인 태그의 크기는 넓이 300*700 px, 배경색은 yellowgreen
+
+        $(function(){
+
+        });
+        var $guguEle = "<div id='a1'></div>"
+        $("h1").append($guguEle);
+        
+        // 1초마다 (2*1=1), (2*2=4), (2*3=6) 순차적으로 p 태그를 생성하여 화면에 추가적으로 나타냄
+        // 2*9=18 이후 3*1=3 이 표시된.
+        let x = 2;
+        let y = 1;
+        var intervalGGD = window.setInterval(start, 1000);
+        function start(){
+            $("#a1").append("<p>"+ x + " x " + y +" = " + x*y + "</p>");
+            y++;
+            if(y == 10){x++; y = 1;}
+            if(x == 10){x = 2; y = 1;}
+        }
+
+        // id btn1 버튼이 눌려지면 구구단은 더이상 보여지지 않음.
+        $("#btn1").click(stop);
+        function stop(){
+            clearInterval(intervalGGD);
+        }
+    </script>
+</body>
+</html>

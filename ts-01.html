@@ -42,8 +42,7 @@
             // 문제 3
             // 비밀번호와 비밀번호 확인란이 동일하지 않으면 <span id="checkpwd"></span> 에 "동일하게 입력해주세요"
             if (pw1value != pw2value) {
-                var pwdNotSame = document.getElementById("checkpwd");
-                pwdNotSame.innerHTML = "동일하게 입력해주세요";
+                document.getElementById("checkpwd").innerHTML = "동일하게 입력해주세요";
                 return false;
             }
 
