@@ -111,10 +111,10 @@
             float: right;
         }
         input[type="radio"] {display: none;}
-        input ~ div {display: none;}
+        .tab_item {display: none;}
 
-        input:nth-of-type(1):checked ~ div:nth-of-type(1) {display: block;}
-        input:nth-of-type(2):checked ~ div:nth-of-type(2) {display: block;}
+        #rd_first:checked ~ #tab1 {display: block;}
+        #rd_second:checked ~ #tab2 {display: block;}
 
         aside>label {
             display: block;
@@ -129,8 +129,8 @@
             color: white;
         }
         
-        input:nth-of-type(1):checked ~ label:nth-of-type(1) {background-color: white; color: black;}
-        input:nth-of-type(2):checked ~ label:nth-of-type(2) {background-color: white; color: black;}
+        #rd_first:checked ~ label:nth-of-type(1) {background-color: white; color: black;}
+        #rd_second:checked ~ label:nth-of-type(2) {background-color: white; color: black;}
 
         /*탭 목록*/
         .tab_item .item {
@@ -208,7 +208,7 @@
             <input type="radio" id="rd_second" name="tab">
             <label for="rd_first">First</label>
             <label for="rd_second">Second</label>
-            <div class="tab_item">
+            <div class="tab_item" id="tab1">
                 <ul>
                     <li class="item">
                         <a href="#">
@@ -223,7 +223,7 @@
                     <li class="item"><a href="#"><div class="thumbnail"><img src="https://via.placeholder.com/45" width="30px" height="30px"><div><div class="description">HTML5 Semantic tag<p>2012-03-15</p></div></div></a></li>
                 </ul>
             </div>
-            <div class="tab_item">
+            <div class="tab_item" id="tab2">
                 <ul>
                     <li class="item"><a href="#"><div class="thumbnail"><img src="https://via.placeholder.com/45" width="30px" height="30px"><div><div class="description">CSS3 Tr<p>2012-03-15</p></div></div></a></li>
                     <li class="item"><a href="#"><div class="thumbnail"><img src="https://via.placeholder.com/45" width="30px" height="30px"><div><div class="description">CSS3 Audio<p>2012-03-15</p></div></div></a></li>

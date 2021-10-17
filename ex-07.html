@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>acordian slide menu</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- header CSS -->
+    <!-- footer CSS -->
+    <!-- content CSS -->
+    <style>
+        [type="radio"] {
+            display: none;
+        }
+        ul {
+            display: none;
+        }
+        label {
+            display: block;
+            padding: 10px 5px;
+        }
+        /* 방법 1 : CSS를 이용*/
+        /* input:nth-of-type(1):checked~label:nth-of-type(1)+ul{
+            display: block;
+        }
+        input:nth-of-type(2):checked~label:nth-of-type(2)+ul{
+            display: block;
+        }
+        input:nth-of-type(3):checked~label:nth-of-type(3)+ul{
+            display: block;
+        } */
+    </style>
+    <script>
+        $(function () {
+            $("label").click(function (index, ele) {
+                console.log(this);
+                console.log($(this));
+                //$(this).next("ul").css("display", "block");
+                // console.log($(this).index());
+                var clickedIdx = $(this).index()/2;
+                console.log(clickedIdx);
+                $("label").each(function(index, element){
+                    console.log(index);
+                    console.log(element);
+                    console.log($(element).next());
+                    if(index == clickedIdx) {
+                        $(element).next().slideDown(1000);
+                    }else {
+                        $(element).next().hide(1000);
+                    }
+                });   // each() 메소드
+            });
+        });
+    </script>
+</head>
+<body>
+    <!-- include header.jsp -->
+    <nav>
+        <input type="radio" name="tabmenu" id="one">
+        <input type="radio" name="tabmenu" id="two">
+        <input type="radio" name="tabmenu" id="three">
+        <div id="acordian">
+            <label for="one" class="level1">프로그래밍언어</label>
+            <ul>
+                <li><a href="#one">JAVA</a></li>
+                <li><a href="#">HTML/CSS/JS/jQuery</a></li>
+                <li><a href="#">Oracle/PLSQL</a></li>
+            </ul>
+            <label for="two" class="level1">프로그래밍언어</label>
+            <ul>
+                <li><a href="#one">JAVA</a></li>
+                <li><a href="#">HTML/CSS/JS/jQuery</a></li>
+                <li><a href="#">Oracle/PLSQL</a></li>
+            </ul>
+            <label for="three" class="level1">프로그래밍언어</label>
+            <ul>
+                <li><a href="#one">JAVA</a></li>
+                <li><a href="#">HTML/CSS/JS/jQuery</a></li>
+                <li><a href="#">Oracle/PLSQL</a></li>
+            </ul>
+        </div>
+    </nav>
+
+</body>
+</html>
