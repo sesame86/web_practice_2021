@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+/* 스마트폰 가로+세로 */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px){
+    body{
+        background-color: red;
+    }
+}
+
+ /* 스마트폰 가로 */
+@media only screen and (min-width : 320px) {
+    body{
+        background-color: orange;
+    }
+}
+
+ /* 스마트폰 세로 */
+@media only screen and (max-width : 320px) {
+    body{
+        background-color: yellow;
+    }
+}
+
+/* iPhone4와 같은 높은 크기 세로 */
+@media
+only screen and (-webkit-min-device-pixel-ratio : 1.5),
+only screen and (min-device-pixel-ratio : 1.5) {
+    body{
+        background-color: green;
+    }
+}
+
+/* iPhone4와 같은 높은 해상도 가로 */
+@media only screen and (min-width : 640px) {
+    body{
+        background-color: blue;
+    }
+}
+
+/* iPad 가로+세로 */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    body{
+        background-color: purple;
+    }
+}
+
+/* 세로 모드 */
+@media all and (orientation:portrait) {
+    body{
+        background-color: lavender;
+    }
+}
+
+/* 가로 모드 */
+@media all and (orientation:landscape) {
+    body{
+        background-color: skyblue;
+    }
+}
+
+/* iPad 가로 */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+    body{
+        background-color: gray;
+    }
+}
+
+/* iPad 세로 */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+    body{
+        background-color: black;
+    }
+}
+
+/* 데스크탑 브라우저 가로 */
+@media only screen and (min-width : 1224px) {
+    body{
+        background-color: lightcoral;
+    }
+}
+
+/* 큰 모니터 */
+@media only screen and (min-width : 1824px) {
+    body{
+        background-color: pink;
+    }
+}
+    </style>
+</head>
+<body>
+    
+</body>
+</html>

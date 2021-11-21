@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://kit.fontawesome.com/616f27e0c4.js" crossorigin="anonymous"></script>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/ldit_header.css'>
+<style>
+section{
+    width: 87%;
+    height: 94%;
+    float: right;
+    overflow: auto;
+    position: relative;
+}
+#leftArrow{
+    font-size: 2.5rem;
+    position:absolute;
+    top:50%;
+    left:2%;
+}
+#rigthArrow{
+    font-size: 2.5rem;
+    position:absolute;
+    top:50%;
+    right:2%;
+}
+#dotContainer{
+    position:absolute;
+    bottom:5%;
+    left: 50%;
+}
+#dotContainer a {
+    margin: 0 0.4rem;
+}
+#teamContainer{
+    width: 85%;
+    height: 85%;
+    margin: 3rem auto auto auto;
+}
+#teamConGrid{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: minmax(50%, 50%);
+}
+h1{
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+.card{
+    width: 90%;
+    height: 85%;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
+}
+.cardImg{
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+}
+.teamName{
+    font-size: 1.4rem;
+}
+.cardGridCon{
+    width: 90%;
+    height: 60%;
+    margin: 4%;
+}
+.cardGrid{
+    width: 100%;
+    height: 30%;
+    margin: 5% 0;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 39% 0;
+}
+.cardGrid div{
+    background-color: #F7F9FA;
+    text-align: center;
+    width: 100%;
+    height: 90%;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
+}
+progress {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 90%;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
+}
+::-webkit-progress-bar {
+    background-color: #F7F9FA;
+    border-radius: 0.2rem;
+}
+::-webkit-progress-value {
+    background-color: #3498DB;
+    border-radius: 0.2rem;
+}
+
+/*세로*/
+/*스마트폰*/
+@media only screen and (max-width:  767px) and (orientation: portrait){
+    #teamConGrid{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+/*태블릿 pc*/
+@media only screen and (min-width:  768px) and (max-width: 959px) and (orientation: portrait){
+    #teamConGrid{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+/*데스크탑*/
+@media only screen and (min-width:  960px) and (orientation: portrait){
+    #teamConGrid{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+/*가로*/
+/*스마트폰*/
+@media only screen and (max-width:  767px) and (orientation: portrait) and (orientation: landscape){
+    #teamConGrid{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+/*태블릿 pc*/
+@media only screen and (min-width:  768px) and (max-width: 959px) and (orientation: landscape){
+    #teamConGrid{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+/*데스크탑*/
+@media only screen and (min-width:  960px) and (orientation: landscape){
+    #teamConGrid{
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+}
+</style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li id="logo"><img src="css\logo.png"></li>
+                <li id="setting"> <i class="fas fa-cog"></i></li>
+                <li id="bell"><i class="far fa-bell"></i></li>
+                <li id="home"><i class="fas fa-home"></i></li>
+            </ul>
+        </nav>
+    </header>
+    <aside>
+        <!--여기 작성 2-->
+
+    </aside>
+    <section>
+        <a id="leftArrow"><i class="fas fa-chevron-left"></i></a>
+        <div id="teamContainer">
+            <h1>Team</h1>
+            <div id="teamConGrid">
+                <article class="card">
+                    <img class="cardImg" src="https://htmlcolorcodes.com/assets/images/colors/light-gray-color-solid-background-1920x1080.png">
+                    <div class="cardGridCon">
+                        <h4 class="teamName">팀명</h4>
+                        <div class="cardGrid">
+                            <p>TM</p>
+                            <div>김예은</div>
+                            <p>팀목표</p>
+                            <progress value="60" max="100"></progress>
+                        </div>
+                    </div>
+                </article>
+                <article class="card">
+                    <img class="cardImg" src="https://htmlcolorcodes.com/assets/images/colors/light-gray-color-solid-background-1920x1080.png">
+                    <div class="cardGridCon">
+                        <h4 class="teamName">팀명</h4>
+                        <div class="cardGrid">
+                            <p>TM</p>
+                            <div>김예은</div>
+                            <p>팀목표</p>
+                            <progress value="60" max="100"></progress>
+                        </div>
+                    </div>
+                </article>
+                <article class="card">
+                    <img class="cardImg" src="https://htmlcolorcodes.com/assets/images/colors/light-gray-color-solid-background-1920x1080.png">
+                    <div class="cardGridCon">
+                        <h4 class="teamName">팀명</h4>
+                        <div class="cardGrid">
+                            <p>TM</p>
+                            <div>김예은</div>
+                            <p>팀목표</p>
+                            <progress value="60" max="100"></progress>
+                        </div>
+                    </div>
+                </article>
+                <article class="card">
+                    <img class="cardImg" src="https://htmlcolorcodes.com/assets/images/colors/light-gray-color-solid-background-1920x1080.png">
+                    <div class="cardGridCon">
+                        <h4 class="teamName">팀명</h4>
+                        <div class="cardGrid">
+                            <p>TM</p>
+                            <div>김예은</div>
+                            <p>팀목표</p>
+                            <progress value="60" max="100"></progress>
+                        </div>
+                    </div>
+                </article>
+                
+            </div>
+        </div>
+        <a id="rigthArrow"><i class="fas fa-chevron-right"></i></a>
+        <div id="dotContainer">
+            <a><i class="fas fa-circle"></i></a>
+            <a><i class="fas fa-circle"></i></a>
+            <a><i class="fas fa-circle"></i></a>
+        </div>
+    </section>
+</body>
+</html>
