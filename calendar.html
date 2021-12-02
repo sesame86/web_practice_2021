@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- 이모티콘 -->
+    <script src="https://kit.fontawesome.com/616f27e0c4.js" crossorigin="anonymous"></script>
+
+    <!-- jquery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- calendar -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/locales-all.js"></script>
+
+    <title>Insert title here</title>
+</head>
+
+<body>
+    <section>
+        <div id="calendarCon">
+            <div id='calendar'></div>
+        </div>
+    </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                //locale: 'ko',
+                headerToolbar: {
+                    start: "",
+                    center: "title",
+                    end: 'dayGridMonth,dayGridWeek,dayGridDay'
+                }
+                , titleFormat: function (date) {
+                    return '${date.date.date.year} ${date.date.month + 1}월';
+                }
+                , columnHeaderText: function (date) {
+                    return weekList[date.getDay()]; // 헤더 var weekList = ['일','월','화','수','목','금','토']; 
+                }
+            });
+            calendar.render();
+        });
+    </script>
+</body>
+
+</html>
